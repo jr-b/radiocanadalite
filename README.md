@@ -1,8 +1,11 @@
+
 # Radio-Canada Lite
 
-This is an attempt at making a French version of the CBC Lite website: cbc.ca/lite
+> 🚧 This is a work in progress 🚧
 
-Fetching data from the Radio-Canada API at build time, Eleventy creates pages for every news stories on the main Radio-Canada.ca sections.
+This is an attempt at making a French version of the CBC Lite website: [cbc.ca/lite](cbc.ca/lite)
+
+Fetching data from the Radio-Canada API at build time, Eleventy creates pages for every news stories on the main [Radio-Canada.ca](radio-canada.ca) sections.
 
 ## MVP Roadmap
 1. Establish minimal list of lineups to fetch data from;
@@ -13,3 +16,5 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 ## To do
 - [x] Page template - [one page for each news story](https://www.11ty.dev/docs/pages-from-data/)
 - [ ] Base template - from the one used on cbc.ca/lite
+- [x] Deploy on Netlify: https://radio-canada-lite.netlify.app
+- [ ] Netlify: setup recurrent build each 4h(?) with Zapier - [idea is from Dana Byerly](https://danabyerly.com/articles/using-airtable-with-eleventy/#maintenance) - see [this article for details](https://flaviocopes.com/netlify-auto-deploy/)
