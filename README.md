@@ -11,5 +11,5 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 4. Reuse the design from cbc.ca/lite
 
 ## To do
-- [x] Page template - (https://www.11ty.dev/docs/pages-from-data/)[one page for each news story]
+- [x] Page template - [one page for each news story](https://www.11ty.dev/docs/pages-from-data/)
 - [ ] Base template - from the one used on cbc.ca/lite
