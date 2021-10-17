@@ -12,9 +12,13 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 2. Hosted on Github, served by Netlify free tier;
 3. Return 10 news stories from the main lineups;
 4. Reuse the design from cbc.ca/lite
+5. Trigger build with Netlify webhook + Zapier every X hour
 
 ## To do
 - [x] Page template - [one page for each news story](https://www.11ty.dev/docs/pages-from-data/)
-- [ ] Base template - from the one used on cbc.ca/lite
 - [x] Deploy on Netlify: https://radio-canada-lite.netlify.app
+- [ ] Base template - based on cbc.ca/lite
+- [ ] List main lineups
+- [ ] Each lineup generate a page
+- [ ] Generate a list of every pages/lineups (sitemap)
 - [ ] Netlify: setup recurrent build each 4h(?) with Zapier - [idea is from Dana Byerly](https://danabyerly.com/articles/using-airtable-with-eleventy/#maintenance) - see [this article for details](https://flaviocopes.com/netlify-auto-deploy/)
