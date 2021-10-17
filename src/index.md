@@ -3,6 +3,8 @@ title: Radio-Canada Lite
 layout: page.njk
 ---
 
+<ul>
 {% for newsstories in ppagemtl %}
-{{ newsstories.address.title | safe }}
+<li><a href="/mtl/articles/{{ newsstories.address.title | slug }}/">{{ newsstories.address.title | safe }}</a></li>
 {% endfor %}
+</ul>
