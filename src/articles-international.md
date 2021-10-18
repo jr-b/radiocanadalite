@@ -1,10 +1,10 @@
 ---
 layout: base.njk
 pagination:
-    data: politique
+    data: international
     size: 1
     alias: articles
-permalink: "/politique/articles/{{ articles.address.title | slug }}/"
+permalink: "/international/articles/{{ articles.address.title | slug }}/"
 ---
 <header>
   <h1>{{ articles.address.title }}</h1>
@@ -14,5 +14,5 @@ permalink: "/politique/articles/{{ articles.address.title | slug }}/"
   <article>
     {{ articles.address.body.html | safe }}
   </article>
-    <aside><a href="{{ articles.address.canonicalWebLink.href | safe }}">Lisez l'article sur Radio-Canada.ca</a></aside>
+  <aside><a href="{{ articles.address.canonicalWebLink.href | safe }}">Lisez l'article sur Radio-Canada.ca</a></aside>
 </main>
