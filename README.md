@@ -17,9 +17,10 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 ## To do
 - [x] Page template - [one page for each news story](https://www.11ty.dev/docs/pages-from-data/)
 - [x] Deploy on Netlify: https://radio-canada-lite.netlify.app
-- [ ] Base template - based on cbc.ca/lite (?)
 - [x] List main lineups
 - [x] Each lineup generate a page
-- [ ] Ignore longforms and atypical documents that are sometimes included in lineups
+- [ ] Base template design - based on cbc.ca/lite (?)
+- [ ] Correctly format dates from UTC to UTC-5 + human readable [https://11ty.rocks/eleventyjs/dates/](https://11ty.rocks/eleventyjs/dates/)
+- [ ] Ignore longforms and atypical documents that are sometimes included in lineups [https://github.com/mozilla/nunjucks/issues/676](https://github.com/mozilla/nunjucks/issues/676)
 - [ ] Generate a list of every pages/lineups (sitemap)
 - [ ] Netlify: setup recurrent build each 4h(?) with Zapier - [idea is from Dana Byerly](https://danabyerly.com/articles/using-airtable-with-eleventy/#maintenance) - see [this article for details](https://flaviocopes.com/netlify-auto-deploy/)
