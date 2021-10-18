@@ -3,9 +3,9 @@
 
 > 🚧 Work in progress 🚧
 
-This is an attempt at making a French version of the CBC Lite website: [cbc.ca/lite](cbc.ca/lite)
+This is an attempt at making a French version of the CBC Lite website: [cbc.ca/lite](https://cbc.ca/lite)
 
-Fetching data from the Radio-Canada API at build time, Eleventy creates pages for every news stories on the main [Radio-Canada.ca](radio-canada.ca) sections.
+Fetching data from the Radio-Canada API at build time, Eleventy creates pages for every news stories on the main [Radio-Canada.ca](https://ici.radio-canada.ca) sections.
 
 ## MVP Roadmap
 1. Establish minimal list of lineups to fetch data from;
