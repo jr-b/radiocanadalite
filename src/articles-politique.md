@@ -1,12 +1,11 @@
 ---
 layout: base.njk
 pagination:
-    data: ppagemtl
+    data: politique
     size: 1
     alias: articles
-permalink: "/mtl/articles/{{ articles.address.title | slug }}/"
+permalink: "/politique/articles/{{ articles.address.title | slug }}/"
 ---
-
 <header>
   <h1>{{ articles.address.title }}</h1>
 </header>
