@@ -122,3 +122,27 @@ blockquote {
   background-color: rgba(0, 0, 0, 0.05);
   border-radius: 0 0.25rem 0.25rem 0;
 }
+
+.style_site-container {
+  text-decoration: none;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding-bottom: .5rem;
+}
+
+.style_logo {
+  width: 2rem;
+height: 2rem;
+-webkit-transform: translateY(.25rem);
+transform: translateY(.25rem);
+margin-right: .625rem;
+}
+
+.style_site {
+  width: 2rem;
+height: 2rem;
+-webkit-transform: translateY(.25rem);
+transform: translateY(.25rem);
+margin-right: .625rem;
+}
