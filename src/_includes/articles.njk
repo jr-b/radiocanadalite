@@ -1,0 +1,19 @@
+---
+layout: base.njk
+---
+<header>
+  <h1>{{ articles.address.title | safe }}</h1>
+</header>
+<main>
+<time>Date de publication: {{ articles.address.publishedLastTimeAt }}</time>
+
+{% if articles.address.themeTag.name %}
+<p>Sujets: {{ articles.address.themeTag.name }} - {{ articles.address.subThemeTags[0].name }}</p>
+{% endif %}
+
+<address>Un article écrit par {% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</address>
+  <article>
+    {{ articles.address.body.html | safe }}
+  </article>
+  <aside><a href="{{ articles.address.canonicalWebLink.href | safe }}">Lisez l'article sur Radio-Canada.ca</a></aside>
+</main>
