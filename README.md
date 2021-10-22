@@ -23,7 +23,7 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 - [ ] Indicate last build time (from Netlify) LAST BUILD: {{ buildtime.timestamp | dateToISO }} from [Whimsical](https://github.com/maxboeck/whimsical)
 - [ ] Base template design - based on cbc.ca/lite (?)
 - [ ] Regions list: select element from list (html select element)
-- [ ] Dark mode
+- [x] Dark mode
 - [ ] Correctly format dates from UTC to UTC-5 + human readable [https://11ty.rocks/eleventyjs/dates/](https://11ty.rocks/eleventyjs/dates/)
 - [x] Ignore longforms and atypical documents that are sometimes included in lineups [https://github.com/mozilla/nunjucks/issues/676](https://github.com/mozilla/nunjucks/issues/676)
 - [ ] Generate a list of every pages/lineups (sitemap)

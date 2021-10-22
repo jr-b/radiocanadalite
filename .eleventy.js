@@ -1,8 +1,10 @@
 const filters = require('./utils/filters.js')
 
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy("./src/css/");
-  eleventyConfig.addWatchTarget("./src/css/");
+  eleventyConfig.addPassthroughCopy("./src/scss/");
+  eleventyConfig.addWatchTarget("./src/scss/");
+  eleventyConfig.addPassthroughCopy("./utils/");
+
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 

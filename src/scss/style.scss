@@ -4,6 +4,44 @@
   margin: 0;
 }
 
+/* mode swithcer - dark light */
+/* https://derekkedziora.com/blog/dark-mode-revisited */
+html, html[data-theme="light"] { 
+	--light-text-color: rgb(72, 72, 74);
+  	--link-color: rgb(0, 112, 201);
+  	--main-background-color: rgb(255, 255, 255);
+  	--main-text-color: rgb(51, 51, 51);
+}
+
+html[data-theme="dark"] {
+		--light-text-color: rgb(199, 199, 204);
+  		--link-color: rgb( 100, 210, 255);
+  		--main-background-color: rgb(28, 28, 30);
+  		--main-text-color: rgb(229, 229, 234);
+	}
+
+@media (prefers-color-scheme: dark) {
+	html, html[data-theme="dark"] {
+		--light-text-color: rgb(199, 199, 204);
+  		--link-color: rgb( 100, 210, 255);
+  		--main-background-color: rgb(28, 28, 30);
+  		--main-text-color: rgb(229, 229, 234);
+	}
+	
+	html[data-theme="light"] { 
+	--light-text-color: rgb(72, 72, 74);
+  	--link-color: rgb(0, 112, 201);
+  	--main-background-color: rgb(255, 255, 255);
+  	--main-text-color: rgb(51, 51, 51);
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	img {
+	  filter: brightness(.8) contrast(1.2);
+	}
+  }
+
 /* Layout */
 
 body {
@@ -13,7 +51,8 @@ body {
   padding: 5vh clamp(1rem, 5vw, 3rem) 1rem;
   font-family: system-ui, sans-serif;
   line-height: 1.5;
-  color: #222;
+  color: var(--main-text-color);
+  background-color: var(--main-background-color);
 }
 
 body > * {
@@ -56,7 +95,7 @@ body > footer div {
   border-top: 1px solid #ccc;
   padding-top: 0.5em;
   font-size: 0.9rem;
-  color: #767676;
+  color: var(--main-text-color);
 }
 
 article * + * {
@@ -77,13 +116,17 @@ article * + * {
 }
 
 a {
-  color: navy;
+  color: var(--link-color);
   text-underline-offset: 0.08em;
 }
 
 a:focus {
   outline: 1px solid currentColor;
   outline-offset: 0.2em;
+}
+
+blockquote > footer {
+font-weight: bold;
 }
 
 /* Media */
