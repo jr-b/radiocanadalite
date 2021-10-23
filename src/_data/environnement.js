@@ -1,4 +1,3 @@
-// nouvelle tentative
 // https://developer.here.com/blog/integrating-geojson-in-your-static-sites
 
 const fetch = require('node-fetch');
