@@ -19,8 +19,8 @@
 
   <footer>
     <div>
-      <p>{% year %} {{ meta.siteName }}{% if meta.authorName %} • {{ meta.authorName }}{% endif %}</p>
-      <p class="buildtime">Dernière mise à jour: {{ buildtime.timestamp | dateToISO }}</p>
+      <p>{{ meta.siteName }}{% if meta.authorName %} • {{ meta.authorName }}{% endif %}</p>
+      <p class="buildtime">Dernière mise à jour: {{ buildtime.timestamp | dateToISO }} UTC</p>
     </div>
   </footer>
     <script src="/utils/mode-switcher.js"></script>
