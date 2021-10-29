@@ -12,15 +12,16 @@
 
 </head>
 <body>
-
   {% include "nav.njk" %}
   
   {{ content | safe }}
 
   <footer>
     <div>
-      <p>{{ meta.siteName }}{% if meta.authorName %} • {{ meta.authorName }}{% endif %}</p>
-      <p class="buildtime">Dernière mise à jour: {{ buildtime.timestamp | dateToISO }} UTC</p>
+      <p><strong>{{ meta.siteName }}</strong> est un projet de <a href="#">{{ meta.authorName }}</a></p>
+      <p>Le <a href="https://github.com/jr-b/radiocanadalite">code source</a> est disponible sur Github</p>
+      <p>Pour consulter les plus récents articles ou le site complet, visitez <a href="https://ici.radio-canada.ca">Radio-Canada.ca</a></p>
+      <p class="buildtime"><strong>Dernière mise à jour: {{ buildtime.timestamp }} </strong></p>
     </div>
   </footer>
     <script src="/utils/mode-switcher.js"></script>

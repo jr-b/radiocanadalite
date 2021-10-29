@@ -1,0 +1,14 @@
+/* https://reneroth.xyz/marquees-in-css/ */
+
+.container-marquee {
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+  }
+  
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.buildtime {background-color: cornsilk;}

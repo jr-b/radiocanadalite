@@ -5,5 +5,5 @@ module.exports = {
   siteName: "Radio-Canada Lite",
   siteDescription:
     "Une version légère de Radio-Canada.ca",
-  authorName: "Un projet de Jérémi Robitaille-Brassard", // optional
+  authorName: "Jérémi Robitaille-Brassard", // optional
 };
