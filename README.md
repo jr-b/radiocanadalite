@@ -25,4 +25,4 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 - [x] Dark mode
 - [ ] Correctly format dates from UTC to UTC-5 + human readable [https://11ty.rocks/eleventyjs/dates/](https://11ty.rocks/eleventyjs/dates/)
 - [x] Ignore longforms and atypical documents that are sometimes included in lineups [https://github.com/mozilla/nunjucks/issues/676](https://github.com/mozilla/nunjucks/issues/676)
-- [ ] Generate a list of every pages/lineups (sitemap)
+- [x] Generate a list of every pages/lineups (sitemap)
