@@ -5,13 +5,14 @@ layout: base.njk
   <h1>{{ articles.address.title | safe }}</h1>
 </header>
 <main>
-<time>Date de publication: {{ articles.address.publishedLastTimeAt }}</time>
-
-{% if articles.address.themeTag.name %}
-<p>Sujets: {{ articles.address.themeTag.name }} - {{ articles.address.subThemeTags[0].name }}</p>
-{% endif %}
-
-<address>Un article écrit par {% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</address>
+  <div class="meta-article">
+    <time>Date de publication: {{ articles.address.publishedLastTimeAt }}</time>
+    {% if articles.address.themeTag.name %}
+    <span>Sujets: {{ articles.address.themeTag.name }} - {{ articles.address.subThemeTags[0].name }}</span>
+    {% endif %}
+    <span class="author">Un article écrit par
+      {% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span>
+  </div>
   <article>
     {{ articles.address.body.html | safe }}
   </article>

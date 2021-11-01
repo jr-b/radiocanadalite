@@ -38,6 +38,8 @@
   },
   "devDependencies": {
     "@11ty/eleventy-cache-assets": "^2.3.0",
+    "date-fns": "^2.25.0",
+    "eleventy-plugin-date": "^1.0.0",
     "node-fetch": "^2.3.0"
   }
 }
