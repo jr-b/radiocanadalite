@@ -6,7 +6,7 @@ layout: base.njk
 </header>
 <main>
   <div class="meta-article">
-    <time>Date de publication: {{ articles.address.publishedLastTimeAt }}</time>
+    <time>Date de publication: {{ articles.address.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm:ss") }} UTC</time>
     {% if articles.address.themeTag.name %}
     <span>Sujets: {{ articles.address.themeTag.name }} - {{ articles.address.subThemeTags[0].name }}</span>
     {% endif %}
