@@ -24,6 +24,8 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 - [x] Dark mode
 - [x] Ignore longforms and atypical documents that are sometimes included in lineups [https://github.com/mozilla/nunjucks/issues/676](https://github.com/mozilla/nunjucks/issues/676)
 - [x] Generate a list of every pages/lineups (sitemap)
+- [ ] Integrate images that a returned by the endpoints? Lazyload
+- [ ] /about page to explain project
 - [ ] Correctly format dates from UTC to UTC-5 + human readable [https://11ty.rocks/eleventyjs/dates/](https://11ty.rocks/eleventyjs/dates/)
 - [ ] Regions list: select element from list (html select element)
 
