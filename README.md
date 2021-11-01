@@ -21,8 +21,10 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 - [x] Each lineup generate a page
 - [x] Netlify: setup recurrent build each 4h(?) with ~Zapier~ Integramat (Webhooks are premium on Zapier) - [idea is from Dana Byerly](https://danabyerly.com/articles/using-airtable-with-eleventy/#maintenance) - see [this article for details](https://flaviocopes.com/netlify-auto-deploy/)
 - [x] Indicate last build time (from Netlify) LAST BUILD: {{ buildtime.timestamp | dateToISO }} from [Whimsical](https://github.com/maxboeck/whimsical)
-- [ ] Regions list: select element from list (html select element)
 - [x] Dark mode
-- [ ] Correctly format dates from UTC to UTC-5 + human readable [https://11ty.rocks/eleventyjs/dates/](https://11ty.rocks/eleventyjs/dates/)
 - [x] Ignore longforms and atypical documents that are sometimes included in lineups [https://github.com/mozilla/nunjucks/issues/676](https://github.com/mozilla/nunjucks/issues/676)
 - [x] Generate a list of every pages/lineups (sitemap)
+- [ ] Correctly format dates from UTC to UTC-5 + human readable [https://11ty.rocks/eleventyjs/dates/](https://11ty.rocks/eleventyjs/dates/)
+- [ ] Regions list: select element from list (html select element)
+
+
