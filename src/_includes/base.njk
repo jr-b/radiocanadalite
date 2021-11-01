@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Radio-Canada Lite | Version légère de Radio-Canada.ca">
-  <title>{{ title }}{% if page.url != '/' %} | {{ meta.siteName }}{% endif %}</title>
+  <title>{{ articles.address.title | safe }} {{ title }} | {{ meta.siteName }}</title>
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/marquee.css' | url }}">
   <script async defer data-website-id="1f65a071-a3a5-4da9-ad89-12601201a8d7" src="https://uma-mi.herokuapp.com/umami.js"></script>
