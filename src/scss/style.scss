@@ -197,3 +197,17 @@ margin-right: .625rem;
 .author{
   font-weight: bold;
 }
+
+.logo-link {
+  text-decoration: none;
+  color: var(--main-text-color);
+  font-weight: bold;
+}
+
+a[href^='https']:not([class])::after {
+  content: '⤤';
+  text-decoration: none;
+  color: gray;
+  display: inline-block;
+  margin-left: 1px;
+}
