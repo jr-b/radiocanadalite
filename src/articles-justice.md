@@ -4,5 +4,5 @@ pagination:
     data: justice
     size: 1
     alias: articles
-permalink: "/justice/articles/{{ articles.address.title | slug }}/"
+permalink: "/justice-et-faits-divers/articles/{{ articles.address.title | slug }}/"
 ---

@@ -2,17 +2,13 @@
 layout: base.njk
 ---
 <header>
-  <h1>{{ articles.address.title | safe }}</h1>
+  <p>{{ articles.address.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm:ss") }} (UTC).</time>
+    <span class="author">Un article écrit par
+      {% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span></p>
+  <h2>{{ articles.address.title | safe }}</h2>
+  <p>{% if articles.address.themeTag.name %}<a href="/{{ articles.address.themeTag.name | slug }}/">{{ articles.address.themeTag.name }}</a> > {{ articles.address.subThemeTags[0].name }}{% endif %}</p>
 </header>
 <main>
-  <div class="meta-article">
-    <time>Date de publication: {{ articles.address.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm:ss") }} UTC</time>
-    {% if articles.address.themeTag.name %}
-    <span>Sujets: {{ articles.address.themeTag.name }} - {{ articles.address.subThemeTags[0].name }}</span>
-    {% endif %}
-    <span class="author">Un article écrit par
-      {% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span>
-  </div>
   <article>
     {{ articles.address.body.html | safe }}
   </article>

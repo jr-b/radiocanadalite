@@ -53,10 +53,11 @@ body {
   line-height: 1.5;
   color: var(--main-text-color);
   background-color: var(--main-background-color);
+  font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, "segoe ui", "helvetica neue", helvetica, ubuntu, roboto, noto, sans-serif;
 }
 
 body > * {
-  --layout-spacing: max(8vh, 3rem);
+  --layout-spacing: max(5vh, 1rem);
   --max-width: 70ch;
   width: min(100%, var(--max-width));
   margin-left: auto;
@@ -194,10 +195,6 @@ margin-right: .625rem;
   display: grid;
 }
 
-.author{
-  font-weight: bold;
-}
-
 .logo-link {
   text-decoration: none;
   color: var(--main-text-color);
@@ -210,4 +207,30 @@ a[href^='https']:not([class])::after {
   color: gray;
   display: inline-block;
   margin-left: 1px;
+}
+
+body header p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #888;
+}
+
+header h2 {
+  margin-top: 0 !important;
+}
+
+main article ul {
+  list-style: none;
+  margin-block-start: 0px;
+  padding-inline-start: 0px;
+}
+
+main article .framed ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
 }
