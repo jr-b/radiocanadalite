@@ -12,5 +12,5 @@ layout: base.njk
   <article>
     {{ articles.address.body.html | safe }}
   </article>
-  <aside><a href="https://{{ articles.address.canonicalWebLink.href | safe }}">Lisez l'article sur Radio-Canada.ca</a></aside>
+  <aside><a href="{{ articles.address.canonicalWebLink.href }}">Lisez l'article sur Radio-Canada.ca</a></aside>
 </main>
