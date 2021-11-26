@@ -3,7 +3,7 @@ title: Insolite
 layout: page.njk
 ---
 
-<ul>
+<ul style="list-style: none;margin-block-start: 0px;padding-inline-start: 0px;">
 {% for newsstories in insolite %}
 {% if newsstories.address.title %}
 {% if newsstories.address.contentType.id == "11" %}<li>— <a href="/insolite/articles/{{ newsstories.address.title | slug }}/">{{ newsstories.address.title | safe }}</a></li>
