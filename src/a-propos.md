@@ -7,9 +7,17 @@ L’objectif initial était d’apprendre à utiliser le générateur de site st
 
 J’ai pris l’inspiration d’autres sociétés/médias qui rendent disponibles des versions légères, "text-only" de leurs sites web principaux: [NPR](https://text.npr.org/), [CNN](http://lite.cnn.com/en), [The Guardian](https://www.skinnyguardian.xyz/). [CBC offre d’ailleurs une version “lite”](https://www.cbc.ca/lite/) de son site, ce que Radio-Canada n’a pas encore fait.
 
+### Fréquence de mise à jour
+Les articles sont mis à jour à toutes les 30 minutes via l'API de Radio-Canada.ca. 
+
+### Affiliation à CBC/Radio-Canada
+Ce site n'est pas affilié à CBC/Radio-Canada. Il s'agit d'un projet personnel mis en ligne sans aucune intervention de la société d'État. 
+
 ### Où sont les photos?
 Pour alléger le site, je n'inclus pas de photos sur le site pour l'instant.
 
 ### Comment contribuer?
 Vous pouvez me payer un petit café à la page [https://www.buymeacoffee.com/jrbra](https://www.buymeacoffee.com/jrbra)
 
+### Contact
+<a href="mailto:bonjour@jrb.nz">bonjour@jrb.nz</a>
