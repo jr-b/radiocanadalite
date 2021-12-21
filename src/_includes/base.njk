@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
+<!-- This page was built at {{ buildtime.timestamp | newsDate("dd LLL yyyy HH:mm:ss") }} UTC -->
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Radio-Canada Lite | Version légère de Radio-Canada.ca">
+  <meta name="Robots" content="index,follow">
+  <meta property="og:description" content="Radio-Canada Lite | Version légère de Radio-Canada.ca">
+  <meta property="og:title" content="Radio-Canada Lite | Version légère de Radio-Canada.ca">
+  <meta property="og:url" content="https://rc-lite.xyz">
   <title>{{ articles.address.title | safe }} {{ title }} | {{ meta.siteName }}</title>
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
   <link rel="stylesheet" href="{{ '/css/marquee.css' | url }}">
@@ -16,13 +21,12 @@
   {{ content | safe }}
 
   <footer>
-    <div>
-      <p><strong>{{ meta.siteName }}</strong> | <a href="mailto:bonjour@jrb.nz">bonjour@jrb.nz</a></p>
-      <p>Pour consulter les plus récents articles ou le site complet, visitez <a href="https://ici.radio-canada.ca">Radio-Canada.ca</a></p>
+    <div> 
       <p class="buildtime"><span class="blob"></span><strong>Dernière mise à jour: {{ buildtime.timestamp | newsDate("dd LLL yyyy HH:mm:ss") }} UTC </strong></p>
+      <p><strong><a class="" href="/a-propos">À propos de {{ meta.siteName }}</a></strong> | <a href="mailto:bonjour@jrb.nz">bonjour@jrb.nz</a></p>
+      <p>Tous les textes sont récupérés via l'API de <a href="https://ici.radio-canada.ca">Radio-Canada.ca</a></p>
     </div>
   </footer>
     <script src="/utils/mode-switcher.js"></script>
-
 </body>
 </html>

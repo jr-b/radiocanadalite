@@ -1,12 +1,14 @@
 const filters = require('./utils/filters.js')
 const { DateTime } = require("luxon");
 const HumanReadable = require("human-readable-numbers");
+const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/scss/");
   eleventyConfig.addWatchTarget("./src/scss/");
   eleventyConfig.addPassthroughCopy("./utils/");
   eleventyConfig.addPassthroughCopy({"src/static": "/"});
+  eleventyConfig.addPlugin(lazyImagesPlugin);
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 

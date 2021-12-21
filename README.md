@@ -28,5 +28,7 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 - [ ] /about page to explain project
 - [x] Correctly format dates to human readable [https://11ty.rocks/eleventyjs/dates/](https://11ty.rocks/eleventyjs/dates/)
 - [ ] Regions list: select element from list (html select element)
+- [ ] Attachments: `{% if articles.address.body.attachments[0].htmlSnippet.html %}<hr>{{ articles.address.body.attachments[0].htmlSnippet.html | safe }}{% endif %}`
+- [ ] Images: ` {% if articles.address.shareableSummaryMultimediaContent.concreteImages[0].mediaLink.href %}<img src="{{ articles.address.shareableSummaryMultimediaContent.concreteImages[0].mediaLink.href }}" alt="">{% endif %}`
 
 
