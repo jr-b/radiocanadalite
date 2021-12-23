@@ -1,6 +1,7 @@
 ---
 layout: base.njk
 ---
+  
 <header>
   <p>{{ articles.address.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm:ss") }} (UTC).</time>
     <span class="author">Un article écrit par
@@ -10,6 +11,12 @@ layout: base.njk
 </header>
 <main>
   <article>
+{% if articles.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}
+<figure>
+<a class="load-image" href="{{ articles.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}">{{ articles.address.shareableSummaryMultimediaContent.legend }}<i>Cliquez ici pour afficher l'image d'en-tête</i></a>  
+<figcaption style="display:none;">{{ articles.address.shareableSummaryMultimediaContent.legend }}</figcaption>
+</figure>
+{% endif %}
     {{ articles.address.body.html | safe }}
   </article>
   <aside><a href="{{ articles.address.canonicalWebLink.href }}">Lisez l'article sur Radio-Canada.ca</a></aside>

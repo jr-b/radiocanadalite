@@ -13,9 +13,6 @@ Les articles sont mis à jour à toutes les 30 minutes via l'API de Radio-Canada
 ### Affiliation à CBC/Radio-Canada
 Ce site n'est pas affilié à CBC/Radio-Canada. Il s'agit d'un projet personnel mis en ligne sans aucune intervention de la société d'État. 
 
-### Où sont les photos?
-Pour alléger le site, je n'inclus pas de photos sur le site pour l'instant.
-
 ### Comment contribuer?
 Vous pouvez me payer un petit café à la page [https://www.buymeacoffee.com/jrbra](https://www.buymeacoffee.com/jrbra)
 

@@ -11,9 +11,7 @@
   <meta property="og:title" content="Radio-Canada Lite | Version légère de Radio-Canada.ca">
   <meta property="og:url" content="https://rc-lite.xyz">
   <title>{{ articles.address.title | safe }} {{ title }} | {{ meta.siteName }}</title>
-  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
-  <link rel="stylesheet" href="{{ '/css/marquee.css' | url }}">
-
+  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">  
 </head>
 <body>
   {% include "nav.njk" %}
@@ -28,5 +26,20 @@
     </div>
   </footer>
     <script src="/utils/mode-switcher.js"></script>
+    <script>
+    document.querySelectorAll(".load-image").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        const href = event.target.getAttribute("href");
+        const legend = event.target.innerText;
+        event.preventDefault();
+        const newImage = document.createElement("img");
+        newImage.setAttribute("src", href);
+        newImage.setAttribute("alt", legend);
+        document.querySelector("figcaption").style.display = "block";
+        document.querySelector("figure").insertBefore(newImage, event.target);
+        event.target.remove();
+      });
+    });
+</script>
 </body>
 </html>

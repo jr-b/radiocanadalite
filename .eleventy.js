@@ -8,7 +8,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./src/scss/");
   eleventyConfig.addPassthroughCopy("./utils/");
   eleventyConfig.addPassthroughCopy({"src/static": "/"});
-  eleventyConfig.addPlugin(lazyImagesPlugin);
+//  eleventyConfig.addPlugin(lazyImagesPlugin);
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
