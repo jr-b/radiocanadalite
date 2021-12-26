@@ -8,11 +8,11 @@ This is an attempt at making a French version of the CBC Lite website: [cbc.ca/l
 Fetching data from the Radio-Canada API at build time, Eleventy creates pages for every news stories on the main [Radio-Canada.ca](https://ici.radio-canada.ca) sections.
 
 ## MVP Roadmap
-1. Establish minimal list of lineups to fetch data from;
-2. Hosted on Github, served by Netlify free tier;
-3. Return 10 news stories from the main lineups;
-4. Minimalist, unintrusive design
-5. Trigger build with Netlify webhook + Zapier every X hour
+1. Establish minimal list of lineups to fetch data from ✅
+2. Hosted on Github, served by Vercel ✅
+3. Return 10 news stories from the main lineups ✅
+4. Minimalist, unintrusive design ✅
+5. Trigger build with cron, calling the build hook from Vercel ✅ 
 
 ## To do
 - [x] Page template - [one page for each news story](https://www.11ty.dev/docs/pages-from-data/)
@@ -24,11 +24,9 @@ Fetching data from the Radio-Canada API at build time, Eleventy creates pages fo
 - [x] Dark mode
 - [x] Ignore longforms and atypical documents that are sometimes included in lineups [https://github.com/mozilla/nunjucks/issues/676](https://github.com/mozilla/nunjucks/issues/676)
 - [x] Generate a list of every pages/lineups (sitemap)
-- [ ] Integrate images that are returned by the endpoints? Lazyload
-- [ ] /about page to explain project
+- [x] Integrate images that are returned by the endpoints: load only if users click
+- [x] /about page to explain project: [rc-lite.xyz/a-propos](https://rc-lite.xyz/a-propos)
 - [x] Correctly format dates to human readable [https://11ty.rocks/eleventyjs/dates/](https://11ty.rocks/eleventyjs/dates/)
 - [ ] Regions list: select element from list (html select element)
 - [ ] Attachments: `{% if articles.address.body.attachments[0].htmlSnippet.html %}<hr>{{ articles.address.body.attachments[0].htmlSnippet.html | safe }}{% endif %}`
-- [x] Images: ` {% if articles.address.shareableSummaryMultimediaContent.concreteImages[0].mediaLink.href %}<img src="{{ articles.address.shareableSummaryMultimediaContent.concreteImages[0].mediaLink.href }}" alt="">{% endif %}`
-
 
