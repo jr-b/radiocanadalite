@@ -2,6 +2,7 @@ const filters = require('./utils/filters.js')
 const { DateTime } = require("luxon");
 const HumanReadable = require("human-readable-numbers");
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
+const slugify = require("slugify");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/scss/");
@@ -25,6 +26,25 @@ module.exports = function (eleventyConfig) {
 		return DateTime.fromJSDate(dateObj).toFormat(format);
 	});
 
+  eleventyConfig.addFilter("slugify", function (str) {
+    return slugify(str, {
+      lower: true,
+      replacement: "-",
+      remove: /[*+~.·,()'"`´%!?¿:@]/g
+    });
+  });
+
+  eleventyConfig.addFilter("slug", (str) => {
+    if (!str) {
+      return;
+    }
+  
+    return slugify(str, {
+      lower: true,
+      strict: true,
+      remove: /["]/g,
+    });
+  });
 
     // Filters
     Object.keys(filters).forEach((filterName) => {

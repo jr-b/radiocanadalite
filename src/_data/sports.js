@@ -11,19 +11,22 @@ module.exports = async function() {
 
     let newsId = lineupdata.contentItemSummaries.items.map(c => {
         return {
-            id: c.selfLink
+            id: c.selfLink,
+            type: c.classificationTag.codeName
         }
     });
-
+    //console.log(newsId.type);
     //https://stackoverflow.com/a/37576787/52160
     for(const newsData of newsId) {
-        if (newsData.id != null){
-        let url = `${newsData.id.href}`;
-
-        let newsDataRequest = await fetch(url);
-        let location = await newsDataRequest.json();
-        newsData.address = location;
+        //console.log(newsData.type);
+        if (newsData.id !== null){
+            //console.log(newsData.type);
+            let url = `${newsData.id.href}`;
+            let newsDataRequest = await fetch(url);
+            let location = await newsDataRequest.json();
+            newsData.address = location;
         }
-    }
+    }        
+    //console.log(newsId);
     return newsId;
 }
