@@ -2,13 +2,14 @@ const { DateTime } = require('luxon')
 
 module.exports = {
     dateToFormat: function (date, format) {
-        return DateTime.fromJSDate(date, { zone: 'utc' }).toFormat(
+        Settings.defaultLocale = "fr";
+        return DateTime.fromJSDate(date, { zone: 'Canada/Toronto'}).toFormat(
             String(format)
-        )
+        );
     },
 
     dateToISO: function (date) {
-        return DateTime.fromJSDate(date, { zone: 'utc' }).toISO({
+        return DateTime.fromJSDate(date, { zone: 'Canada/Toronto'}).toISO({
             includeOffset: false,
             suppressMilliseconds: true
         })
