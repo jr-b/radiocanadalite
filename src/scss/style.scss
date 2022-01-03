@@ -165,7 +165,7 @@ article img {
 .load-image {
   display: block;
   background: #ccc;
-  height: 140px;
+  height: auto;
   width: 100%;
   border-radius: 15px;
   display: grid;
@@ -176,6 +176,8 @@ article img {
   opacity: 0.7;
   transition: all 0.3s ease;
   padding: 1em 1em;
+
+  & i {font-size: small;}
 
   &:hover {
     opacity: 1;
