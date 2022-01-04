@@ -1,0 +1,15 @@
+<script>
+    document.querySelectorAll(".load-image").forEach((item) => {
+      item.addEventListener("click", (event) => {
+        const href = event.target.getAttribute("href");
+        const legend = event.target.innerText;
+        event.preventDefault();
+        const newImage = document.createElement("img");
+        newImage.setAttribute("src", href);
+        newImage.setAttribute("alt", legend);
+        document.querySelector("figcaption").style.display = "block";
+        document.querySelector("figure").insertBefore(newImage, event.target);
+        event.target.remove();
+      });
+    });
+</script>
