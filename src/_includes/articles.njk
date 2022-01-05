@@ -17,6 +17,7 @@ layout: base.njk
 <figcaption style="display:none;">{{ articles.address.shareableSummaryMultimediaContent.legend }}</figcaption>
 </figure>
 {% endif %}
+    {{ articles.address.lead | safe }}
     {{ articles.address.body.html | safe }}
   </article>
   <aside><a href="{{ articles.address.canonicalWebLink.href }}">Lisez l'article sur Radio-Canada.ca</a></aside>
