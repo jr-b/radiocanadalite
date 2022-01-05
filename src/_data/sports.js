@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const Cache = require("@11ty/eleventy-cache-assets");
 
 module.exports = async function() {
-    let lineupdata = await Cache("https://services.radio-canada.ca/neuro/v1/lineups/771?pagenumber=2", { 
+    let lineupdata = await Cache("https://services.radio-canada.ca/neuro/v1/lineups/771", { 
               duration: "2h", // 2h
               type: "json" // also supports "text" or "buffer"
             });       
