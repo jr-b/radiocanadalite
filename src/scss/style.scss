@@ -9,7 +9,7 @@
 html, html[data-theme="light"] { 
 	--light-text-color: rgb(72, 72, 74);
   	--link-color: rgb(0, 112, 201);
-    --hover-link-color: rgb(39, 144, 230);
+    --hover-link-color: #005da7;
   	--main-background-color: rgb(255, 255, 255);
   	--main-text-color: rgb(51, 51, 51);
     --quote-backgroud-color: rgb(0, 0, 0, 0.05);
@@ -19,7 +19,7 @@ html, html[data-theme="light"] {
 html[data-theme="dark"] {
 		--light-text-color: rgb(199, 199, 204);
   		--link-color: rgb( 100, 210, 255);
-      --hover-link-color:rgb(53, 132, 163);
+      --hover-link-color: #86dcff;
   		--main-background-color: rgb(28, 28, 30);
   		--main-text-color: rgb(229, 229, 234);
       --quote-backgroud-color: rgb(119, 119, 129);
