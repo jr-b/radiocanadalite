@@ -10,20 +10,20 @@ J’ai pris l’inspiration d’autres sociétés/médias qui rendent disponible
 ### Avantages
 * **Accessibilité**: L'accès à une connexion Internet haute vitesse est un privilège. Au Canada, beaucoup de personnes n'ont pas accès à Internet ou bien n'ont qu'une connexion limitée. Radio-Canada Lite rend plus accessible l'information de Radio-Canada.ca pour toutes ces personnes.
 * **Épuré**: L'interface est volontairement minimaliste. Retour à l'essentiel. Le texte est mis de l'avant, les images sont facultatives.
-* **Sans publicités**: Radio-Canada Lite n'est pas monétisé et ne rapporte aucun revenus.
-* **Respect de la vie privée**: Aucun traçeurs, aucun *cookies*. Le site ne récupère aucune information sur votre navigateur et votre configuration.
+* **Sans publicités**: Aucune publicité n'est ajoutée au site. Radio-Canada Lite ne rapporte aucun revenu.
+* **Respect de la vie privée**: Aucun *trackers*, aucun *cookies*. Le site ne récupère aucune information sur votre navigateur et votre configuration.
 * **Faible consommation de données**: La page d'accueil de Radio-Canada.ca fait 3200 kb (3.2 MB), alors que Radio-Canada Lite et la plupart de ses pages font moins de 20 kb. *Environ 160 fois moins de données sont consommées en visitant Radio-Canada Lite.*
-* [**Empreinte carbone réduite**: Radio-Canada Lite a une empreinte carbone exemplaire (source: WebsiteCarbon.com)](https://www.websitecarbon.com/website/rc-lite-xyz/).
+* **Empreinte carbone réduite**: [Radio-Canada Lite a une empreinte carbone exemplaire (source: WebsiteCarbon.com)](https://www.websitecarbon.com/website/rc-lite-xyz/).
 
 
 ### Particularités et inconvénients 
 * Seuls les 10 derniers articles sont disponibles dans chaque section. 
 * Les articles ne sont pas archivés sur Radio-Canada Lite.
 * Un article qui se retrouve en 11e position d'une section ne sera pas disponible sur Radio-Canada Lite. 
-* Comme de nouveaux textes sont publiés à chaque jour, les articles sont généralement disponibles sur Radio-Canada Lite pour une durée de 24h à 72h.
+* Comme de nouveaux textes sont publiés chaque jour, les articles sont généralement disponibles sur Radio-Canada Lite pour une durée de 24h à 72h.
 
 ### Fréquence de mise à jour
-Les articles sont mis à jour à toutes les 30 minutes via l'API de Radio-Canada.ca. 
+Les articles sont mis à jour toutes les 30 minutes via l'API de Radio-Canada.ca. 
 
 ### Affiliation à CBC/Radio-Canada
 Ce site n'est pas affilié à CBC/Radio-Canada. Il s'agit d'un projet personnel mis en ligne sans aucune intervention de la société d'État. 
