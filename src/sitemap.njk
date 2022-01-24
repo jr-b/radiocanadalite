@@ -7,9 +7,15 @@ layout: null
 {% for item in collections.pages %}
   <url>
     <loc>{{ meta.url }}{{ item.url }}</loc>
-    {# <lastmod>{{ item.date | date("yyyy-MM-dd")}}</lastmod>
-    <changefreq>{{ item.data.sitemapChangefreq | default("monthly") }}</changefreq>
-    <priority>{{ item.data.sitemapPriority | default(0.8) }}</priority> #}
+    <lastmod>{{ buildtime.timestamp | newsDate("yyyy-MM-dd") }} </lastmod>
+    <changefreq>{{ item.data.sitemapChangefreq | default("Always") }}</changefreq>
+    <priority>1.0</priority>
   </url>
 {% endfor %}
+<url>
+<loc>https://rc-lite.xyz/a-propos</loc>
+<lastmod>{{ item.date }}</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
 </urlset>
