@@ -4,10 +4,15 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>{{ meta.url }}</loc>
+<lastmod>{{ buildtime.timestamp | newsDate("yyyy-MM-dd") }}</lastmod>
+<changefreq>{{ item.data.sitemapChangefreq | default("Always") }}</changefreq>
+<priority>1.0</priority></url>
 {% for item in collections.pages %}
   <url>
     <loc>{{ meta.url }}{{ item.url }}</loc>
-    <lastmod>{{ buildtime.timestamp | newsDate("yyyy-MM-dd") }} </lastmod>
+    <lastmod>{{ buildtime.timestamp | newsDate("yyyy-MM-dd") }}</lastmod>
     <changefreq>{{ item.data.sitemapChangefreq | default("Always") }}</changefreq>
     <priority>1.0</priority>
   </url>
