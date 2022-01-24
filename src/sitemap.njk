@@ -19,7 +19,7 @@ layout: null
 {% endfor %}
 <url>
 <loc>https://rc-lite.xyz/a-propos</loc>
-<lastmod>{{ item.date }}</lastmod>
+<lastmod>{{ item.date | newsDate("yyyy-MM-dd") }}</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
