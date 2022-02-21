@@ -10,20 +10,32 @@ module.exports = async function() {
             });       
 
     let newsId = lineupdata.contentItemSummaries.items.map(c => {
-        return {
-            id: c.selfLink
-        }
+            return {
+                id: c.selfLink,
+                type: c.classificationTag.codeName
+            }
     });
 
-    //https://stackoverflow.com/a/37576787/52160
-    for(const newsData of newsId) {
-        if (newsData.id != null){
-        let url = `${newsData.id.href}`;
+    let newsIdFiltered = newsId.filter(
+        n => {
+            if (n.type !== 'adhoc' ) {
+                { return n }
+            }
+        });
+    
+    //console.log(newsIdFiltered);
 
-        let newsDataRequest = await fetch(url);
-        let location = await newsDataRequest.json();
-        newsData.address = location;
+    //https://stackoverflow.com/a/37576787/52160
+    for(const newsData of newsIdFiltered) {
+        //console.log(newsData.type);
+        if (newsData.id !== null){
+            //console.log(newsData);
+            let url = `${newsData.id.href}`;
+            let newsDataRequest = await fetch(url);
+            let location = await newsDataRequest.json();
+            newsData.address = location;
         }
-    }
-    return newsId;
+    }        
+    //console.log(newsIdFiltered)
+    return newsIdFiltered;
 }
