@@ -7,7 +7,7 @@ layout: page.njk
 {% for newsstories in arts %}
 {% if newsstories.address.title %}
 {% if newsstories.address.contentType.id == "11" %}
-<li>— <a href="/arts/articles/{{ newsstories.address.title | slug }}/">{{ newsstories.address.title | safe }}</a><span>{% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span></li>
+<li>— <a href="/arts/articles/{{ newsstories.address.title | slug }}/">{{ newsstories.address.title | safe }}</a></li>
 {% endif %}
 {% endif %}
 {% endfor %}
