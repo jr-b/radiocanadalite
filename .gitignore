@@ -16,3 +16,6 @@ public
 lineups.md
 www.cbc.ca
 .vercel
+
+# cache folder
+.cache
