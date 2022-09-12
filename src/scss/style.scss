@@ -217,11 +217,14 @@ blockquote {
 
 .style_site-container {
   text-decoration: none;
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding-bottom: .5rem;
-font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  padding-bottom: .5rem;
+  font-size: 1.2rem;
+}
+
+.switch-mode {
+  margin-top: 4px;
 }
 
 .style_logo {

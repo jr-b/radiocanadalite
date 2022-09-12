@@ -23,7 +23,7 @@ module.exports = async function() {
             }
         });
     
-    console.log(newsIdFiltered);
+    //console.log(newsIdFiltered);
 
     //https://stackoverflow.com/a/37576787/52160
     for(const newsData of newsIdFiltered) {
