@@ -5,8 +5,8 @@ const Cache = require("@11ty/eleventy-fetch");
 
 module.exports = async function() {
     let lineupdata = await Cache("https://services.radio-canada.ca/neuro/v1/lineups/92408", { 
-              duration: "2h", // 2h
-              type: "json" // also supports "text" or "buffer"
+                duration: "2m", // 2minutes
+                type: "json" // also supports "text" or "buffer"
             });       
 
     let newsId = lineupdata.contentItemSummaries.items.map(c => {
