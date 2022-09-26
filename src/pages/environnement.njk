@@ -3,7 +3,7 @@ title: Environnement
 layout: page.njk
 ---
 
-{# <ul style="list-style: none;margin-block-start: 0px;padding-inline-start: 0px;">
+<ul style="list-style: none;margin-block-start: 0px;padding-inline-start: 0px;">
 {% for newsstories in environnement %}
 {% if newsstories.address.title %}
 {% if newsstories.address.contentType.id == "11" %}
@@ -11,6 +11,4 @@ layout: page.njk
 {% endif %}
 {% endif %}
 {% endfor %}
-</ul> #}
-
-{{ environnement | dump }}
+</ul>
