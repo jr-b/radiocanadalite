@@ -4,5 +4,5 @@ pagination:
     data: international
     size: 1
     alias: articles
-permalink: "/international/articles/{{ articles.address.title | slug }}/"
+permalink: "/international/articles/{{ articles.address.id }}/"
 ---

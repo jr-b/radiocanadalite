@@ -7,7 +7,7 @@ layout: base.njk
     <span class="author">Un article écrit par
       {% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span></p>
   <h2>{{ articles.address.title | safe }}</h2>
-  <p>{% if articles.address.themeTag.name %}<a href="/{{ articles.address.themeTag.name | slug }}/">{{ articles.address.themeTag.name }}</a> > {{ articles.address.subThemeTags[0].name }}{% endif %}</p>
+  <p>{% if articles.address.themeTag.name %}<a href="/{{ articles.address.themeTag.name | slugify }}/">{{ articles.address.themeTag.name }}</a> > {{ articles.address.subThemeTags[0].name }}{% endif %}</p>
 </header>
 <main>
   <article>
@@ -21,7 +21,11 @@ layout: base.njk
     {{ articles.address.deck | safe }} {% endif %}
     {% if articles.address.lead %}
     {{ articles.address.lead | safe }} {% endif %}
+    {% if articles.address.contentType.id == "26" %}
+    <a href="{{ articles.address.canonicalWebLink.href }}">Contenu audio disponible sur Ohdio - {{ articles.address.ancestors[0].title }} </a>
+    <p>{{ articles.address.summary | safe }}</p> {% endif %}
     {{ articles.address.body.html | safe }}
   </article>
-  <aside><a href="{{ articles.address.canonicalWebLink.href }}">Lisez l'article sur Radio-Canada.ca</a></aside>
+  {% if articles.address.contentType.id != "26" %}
+  <aside><a href="{{ articles.address.canonicalWebLink.href }}">Lisez l'article sur Radio-Canada.ca</a></aside>{% endif %}
 </main>

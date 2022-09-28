@@ -4,5 +4,5 @@ pagination:
     data: sante
     size: 1
     alias: articles
-permalink: "/sante/articles/{% if articles.address.title %}{{ articles.address.title | slug }}{% endif %}/"
+permalink: "/sante/articles/{{ articles.address.id }}/"
 ---

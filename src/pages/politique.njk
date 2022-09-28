@@ -7,7 +7,7 @@ layout: page.njk
 {% for newsstories in politique %}
 {% if newsstories.address.title %}
 {% if newsstories.address.contentType.id == "11" %}
-<li>— <a href="/politique/articles/{{ newsstories.address.title | slug }}/">{{ newsstories.address.title | safe }}</a></li>
+<li>— <a href="/politique/articles/{{ newsstories.address.id | slug }}/">{{ newsstories.address.title | safe }}</a></li>
 {% endif %}
 {% endif %}
 {% endfor %}
