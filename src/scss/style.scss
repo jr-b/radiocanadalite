@@ -295,6 +295,16 @@ figcaption {
   font-size: smaller;
 }
 
+.round-header{
+  border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    background-color: rgb(251, 205, 165);
+    padding: 4px 8px 4px 8px;
+    display: inline;
+}
+
 /* https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
 .blob { 
   display: inline-block;
