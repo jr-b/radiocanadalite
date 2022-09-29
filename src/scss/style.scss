@@ -13,7 +13,7 @@ html, html[data-theme="light"] {
   	--main-background-color: rgb(255, 255, 255);
   	--main-text-color: rgb(51, 51, 51);
     --quote-backgroud-color: rgb(0, 0, 0, 0.05);
-
+    --round-notif-color: rgb(251, 205, 165);
 }
 
 html[data-theme="dark"] {
@@ -23,6 +23,8 @@ html[data-theme="dark"] {
   		--main-background-color: rgb(28, 28, 30);
   		--main-text-color: rgb(229, 229, 234);
       --quote-backgroud-color: rgb(119, 119, 129);
+      --round-notif-color: rgb(119, 119, 129, 0.33);
+
 	}
 
 @media (prefers-color-scheme: dark) {
@@ -32,6 +34,7 @@ html[data-theme="dark"] {
   		--main-background-color: rgb(28, 28, 30);
   		--main-text-color: rgb(229, 229, 234);
       --quote-backgroud-color: rgb(119, 119, 129, 0.33);
+      --round-notif-color: rgb(119, 119, 129, 0.33);
 	}
 	
 	html[data-theme="light"] { 
@@ -40,6 +43,7 @@ html[data-theme="dark"] {
   	--main-background-color: rgb(255, 255, 255);
   	--main-text-color: rgb(51, 51, 51);
     --quote-backgroud-color: rgb(0, 0, 0, 0.05);
+    --round-notif-color: rgb(251, 205, 165);
 	}
 }
 
@@ -300,7 +304,7 @@ figcaption {
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
-    background-color: rgb(251, 205, 165);
+    background-color: var(--round-notif-color);
     padding: 4px 8px 4px 8px;
     display: inline;
 }
