@@ -21,7 +21,8 @@ module.exports = function (eleventyConfig) {
 		if(typeof dateObj === "string") {
 			return DateTime.fromISO(dateObj).toFormat(format);
 		} else if(typeof dateObj === "number") {
-			dateObj = new Date(dateObj);
+			dateObj = new Date(dateObj).toLocaleString("fr-CA", {timeZone: "America/Torono"});
+      // https://stackoverflow.com/questions/439630/create-a-date-with-a-set-timezone-without-using-a-string-representation
 		}
 		return DateTime.fromJSDate(dateObj).toFormat(format);
 	});

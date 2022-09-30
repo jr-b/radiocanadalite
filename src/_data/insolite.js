@@ -4,8 +4,8 @@ async function fetchNews() {
     // https://dmitripavlutin.com/javascript-fetch-async-await/
     // fetching two pages from the lineup
     const [page1, page2] = await Promise.all([
-    fetch('https://services.radio-canada.ca/neuro/v1/lineups/96?pagenumber=1'),
-    fetch('https://services.radio-canada.ca/neuro/v1/lineups/96?pagenumber=2')
+    fetch('https://services.radio-canada.ca/neuro/v1/lineups/1000921?pagenumber=1'),
+    fetch('https://services.radio-canada.ca/neuro/v1/lineups/1000921?pagenumber=2')
     ]);
     const page1Json = await page1.json();
     const pag2Json = await page2.json();

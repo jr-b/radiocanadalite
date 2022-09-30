@@ -3,7 +3,7 @@ layout: base.njk
 ---
   
 <header>
-  <p><time>{{ articles.address.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm") }} (GMT).</time>
+  <p>{% if articles.address.publishedLastTimeAt %}<time>{{ articles.address.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm") }} (GMT).</time>{% endif %}
     <span class="author">Un article écrit par
       {% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span></p>
   <h2>{{ articles.address.title | safe }}</h2>
