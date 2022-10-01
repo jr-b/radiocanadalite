@@ -5,6 +5,6 @@ layout: page.njk
 
 <ul style="list-style: none;margin-block-start: 0px;padding-inline-start: 0px;">
 {% for newsstories in arts %}
-<li>— <a href="/arts/articles/{{ newsstories.address.id | slugify }}/">{{ newsstories.address.title | safe }}</a></li>
+<li>— <a href="/arts/articles/{{ newsstories.address.id }}/">{{ newsstories.address.title | safe }}</a></li>
 {% endfor %}
 </ul>
