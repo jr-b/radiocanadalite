@@ -34,12 +34,14 @@ async function fetchNews() {
     
     // looping over every item, and fetching its full endpoint
     for (const newsData of newsIdFull){
+        if (newsData.id !== null){    
             let url = `${newsData.id.href}`;
 //             console.log(url);
             let newsDataRequest = await fetch(url);
             let data = await newsDataRequest.json();
             newsData.address = data;
     }
+}
     
     //console.log(newsIdFull);
     return newsIdFull;
