@@ -9,7 +9,7 @@ async function fetchNews() {
     ]);
     const page1Json = await page1.json();
     const pag2Json = await page2.json();
-    console.log([page1, page2]);
+    //console.log([page1, page2]);
     
     // keeping only the selfLink and the codeName, page 1
     let newsIdArray1 = page1Json.contentItemSummaries.items.map(id => {

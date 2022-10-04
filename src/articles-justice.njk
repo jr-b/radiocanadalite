@@ -1,0 +1,8 @@
+---
+layout: articles.njk
+pagination:
+    data: justice
+    size: 1
+    alias: articles
+permalink: "/justice-et-faits-divers/articles/{% if articles.address.id %}{{ articles.address.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
+---
