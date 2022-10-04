@@ -3,6 +3,7 @@ const { DateTime } = require("luxon");
 const HumanReadable = require("human-readable-numbers");
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const slugify = require("slugify");
+const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/scss/");
@@ -10,6 +11,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./utils/");
   eleventyConfig.addPassthroughCopy({"src/static": "/"});
 //  eleventyConfig.addPlugin(lazyImagesPlugin);
+
+eleventyConfig.addPlugin(eleventyNavigationPlugin);
+
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 

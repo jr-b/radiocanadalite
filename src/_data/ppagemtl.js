@@ -30,13 +30,13 @@ async function fetchNews() {
     // concat the two pages
     let newsIdFull = newsIdArray1.concat(newsIdArray2);
     
-       console.log(newsIdFull);
+     //  console.log(newsIdFull);
     
     // looping over every item, and fetching its full endpoint
     for (const newsData of newsIdFull){
         if (newsData.id !== null){    
         let url = `${newsData.id.href}`;
-             console.log(url);
+       //      console.log(url);
             let newsDataRequest = await fetch(url);
             let data = await newsDataRequest.json();
             newsData.address = data;

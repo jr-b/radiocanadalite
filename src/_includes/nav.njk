@@ -17,12 +17,13 @@
       <a {% if currentUrl === '/' %}aria-current="page"{% endif %} href="/">À la une</a>
     </li>
 
-    {% for page in collections.pages %}
+    {% set navPages = collections.all | eleventyNavigation %}
+    {% for page in navPages %}
     <li>
       <a 
         {% if currentUrl === page.url %}aria-current="page"{% endif %} 
         href="{{ page.url }}">
-          {{ page.data.title }}
+          {{ page.title }}
       </a>
     </li>
     {%- endfor %}
