@@ -8,6 +8,7 @@
     "build:sass": "sass src/scss:public/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy --incremental",
+    "build:list": "tree -H 'public' -L 4 --noreport --charset utf-8 -o list.html",
     "start": "npm-run-all build:sass --parallel watch:*",
     "build": "npm-run-all build:*"
   },
@@ -42,6 +43,7 @@
     "date-fns": "^2.25.0",
     "eleventy-plugin-date": "^1.0.0",
     "eleventy-plugin-lazyimages": "^2.1.2",
-    "human-readable-numbers": "^0.9.5"
+    "human-readable-numbers": "^0.9.5",
+    "tree-cli": "^0.6.7"
   }
 }
