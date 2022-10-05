@@ -8,7 +8,6 @@
     "build:sass": "sass src/scss:public/css",
     "watch:eleventy": "eleventy --serve",
     "build:eleventy": "eleventy --incremental",
-    "build:list": "tree -H 'public' -L 4 --noreport --charset utf-8 -o public/list.html",
     "start": "npm-run-all build:sass --parallel watch:*",
     "build": "npm-run-all build:*"
   },

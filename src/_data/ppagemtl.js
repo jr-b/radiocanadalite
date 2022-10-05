@@ -4,8 +4,8 @@ async function fetchNews() {
     // https://dmitripavlutin.com/javascript-fetch-async-await/
     // fetching two pages from the lineup
     const [page1, page2] = await Promise.all([
-    fetch('https://services.radio-canada.ca/neuro/v1/lineups/4159?pagenumber=1?bustCache=yes'),
-    fetch('https://services.radio-canada.ca/neuro/v1/lineups/4159?pagenumber=2?bustCache=yes')
+    fetch('https://services.radio-canada.ca/neuro/v1/lineups/4159?pageNumber=1'),
+    fetch('https://services.radio-canada.ca/neuro/v1/lineups/4159?pageNumber=2')
     ]);
     const page1Json = await page1.json();
     const pag2Json = await page2.json();
@@ -14,7 +14,7 @@ async function fetchNews() {
     // keeping only the selfLink and the codeName, page 1
     let newsIdArray1 = page1Json.contentItemSummaries.items.map(id => {
             return {
-                id: id.selfLink,
+                id: id.selfLink.href,
                 type: id.classificationTag.codeName
             }
     });
@@ -22,21 +22,29 @@ async function fetchNews() {
     // keeping only the selfLink and the codeName, page 2
     let newsIdArray2 = pag2Json.contentItemSummaries.items.map(id => {
             return {
-                id: id.selfLink,
+                id: id.selfLink.href,
                 type: id.classificationTag.codeName
             }
     });
 
     // concat the two pages
     let newsIdFull = newsIdArray1.concat(newsIdArray2);
+    //console.log(newsIdFull);
+
+
+    // // filtering for unique
+
+    // let uniqueIdFull = [
+    //     ...new Map(newsIdFull.map((item) => [item["id"], item])).values(),
+    // ];
     
-     //  console.log(newsIdFull);
+    // console.log(uniqueIdFull);
     
     // looping over every item, and fetching its full endpoint
     for (const newsData of newsIdFull){
         if (newsData.id !== null){    
-        let url = `${newsData.id.href}`;
-       //      console.log(url);
+        let url = `${newsData.id}`;
+           //  console.log(url);
             let newsDataRequest = await fetch(url);
             let data = await newsDataRequest.json();
             newsData.address = data;
