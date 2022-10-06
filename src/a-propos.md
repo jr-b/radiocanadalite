@@ -15,17 +15,10 @@ J’ai pris l’inspiration d’autres projets de sociétés/médias qui rendent
 * **Sans publicités**: Aucune publicité n'est ajoutée au site. Radio-Canada Mini ne rapporte aucun revenu.
 * **Respect de la vie privée**: Aucun *trackers*, aucun *cookies*. Le site ne récupère aucune information sur votre navigateur et votre configuration.
 * **Faible consommation de données**: La page d'accueil de Radio-Canada.ca fait 3200 kb (3.2 MB), alors que Radio-Canada Mini et la plupart de ses pages font moins de 20 kb. *Environ 160 fois moins de données sont consommées en visitant Radio-Canada Mini.*
-* **Empreinte carbone réduite**: [Radio-Canada Mini a une empreinte carbone exemplaire (source: WebsiteCarbon.com)](https://www.websitecarbon.com/website/rc-lite-xyz/).
-
-
-### Particularités et inconvénients 
-* Seuls les 10 premiers articles de chaque section sont disponibles sur Radio-Canada Mini. 
-* Les articles ne sont pas archivés sur Radio-Canada Mini.
-* Un article qui se retrouve en 11e position d'une section ne sera pas disponible sur Radio-Canada Mini. 
-* Comme de nouveaux textes sont publiés chaque jour, les articles sont généralement disponibles sur Radio-Canada Mini pour une durée de 24h à 72h.
+* **Empreinte carbone réduite**: [Radio-Canada Mini a une empreinte carbone exemplaire (source: WebsiteCarbon.com)](https://www.websitecarbon.com/website/radiocanadamini-ca/).
 
 ### Fréquence de mise à jour
-Le site est mis à jour toutes les 30 minutes via l'API de Radio-Canada.ca. Pour voir le nouveau contenu, rafraichissez votre navigateur après 30 minutes. 
+Le site est mis à jour toutes les 30 minutes via l'API de Radio-Canada.ca. Pour voir le nouveau contenu, rafraichissez votre navigateur après 30 minutes. Un décompte en bas de page indique dans combien de temps sera fait le prochain rafraichissement.
 
 ### Affiliation à CBC/Radio-Canada
 Ce site n'est pas affilié à CBC/Radio-Canada. Il s'agit d'un projet personnel mis en ligne sans aucune intervention de la société d'État. 
@@ -37,4 +30,4 @@ Si vous appréciez le site, vous pouvez aussi me payer un petit café:
 <div style="margin-top:0;"><script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="jrbra" data-color="#FFDD00" data-emoji="" data-font="Bree" data-text="Offrez-moi un café" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script></div>
 
 ### Contact
-<a href="mailto:bonjour@rc-lite.xyz">bonjour@rc-lite.xyz</a>
+<a href="mailto:bonjour@rc-lite.xyz">bonjour@radiocanadamini.ca</a>
