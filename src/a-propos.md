@@ -23,10 +23,7 @@ Le site est mis à jour toutes les 30 minutes via l'API de Radio-Canada.ca. Pour
 ### Affiliation à CBC/Radio-Canada
 Ce site n'est pas affilié à CBC/Radio-Canada. Il s'agit d'un projet personnel mis en ligne sans aucune intervention de la société d'État. 
 
-### Comment contribuer?
-Le code source du projet est accessible publiquement sur [Github](https://github.com/jr-b/radiocanadalite): vous pouvez donc contribuer au code et suggérer des améliorations.
-
-Si vous appréciez le site, vous pouvez aussi me payer un petit café:
+Si vous appréciez le site, vous pouvez me payer un petit café:
 <div style="margin-top:0;"><script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="jrbra" data-color="#FFDD00" data-emoji="" data-font="Bree" data-text="Offrez-moi un café" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script></div>
 
 ### Contact
