@@ -14,7 +14,7 @@ async function fetchNews() {
     // keeping only the selfLink and the codeName, page 1
     let newsIdArray1 = page1Json.contentItemSummaries.items.map(id => {
             return {
-                id: id.selfLink.href,
+                id: id.selfLink,
                 type: id.classificationTag.codeName
             }
     });
@@ -22,7 +22,7 @@ async function fetchNews() {
     // keeping only the selfLink and the codeName, page 2
     let newsIdArray2 = pag2Json.contentItemSummaries.items.map(id => {
             return {
-                id: id.selfLink.href,
+                id: id.selfLink, 
                 type: id.classificationTag.codeName
             }
     });
@@ -43,8 +43,8 @@ async function fetchNews() {
     // looping over every item, and fetching its full endpoint
     for (const newsData of newsIdFull){
         if (newsData.id !== null){    
-        let url = `${newsData.id}`;
-           //  console.log(url);
+        let url = `${newsData.id.href}`;
+        //console.log(url);
             let newsDataRequest = await fetch(url);
             let data = await newsDataRequest.json();
             newsData.address = data;
