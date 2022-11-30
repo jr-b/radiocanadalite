@@ -24,6 +24,11 @@ layout: base.njk
     {% if articles.address.contentType.id == "26" %}
     <a href="{{ articles.address.canonicalWebLink.href }}">Contenu audio disponible sur Ohdio - {{ articles.address.ancestors[0].title }} </a>
     <p>{{ articles.address.summary | safe }}</p> {% endif %}
+    {% if articles.address.contentType.id == "90" %}
+      {% for item in articles.address.navigations %}
+      {{ item.pageSection.body.html | safe }}
+      {% endfor %}
+         {% endif %}
     {{ articles.address.body.html | safe }}
   </article>
   {% if articles.address.contentType.id != "26" %}
