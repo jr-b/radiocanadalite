@@ -3,7 +3,7 @@ name: Deploy to Github Pages
 on:
   push:
   schedule:
-  - cron:  '*/30 * * * *'
+  - cron:  '*/30 * * * *' # every 30 min
 
 jobs:
   build_and_deploy:
@@ -36,20 +36,3 @@ jobs:
           publish_dir: ./public
           external_repository: jr-b/jr-b.github.io
           keep_files: true
-
-
-
-      # - name: Configure AWS Credentials
-      #   uses: aws-actions/configure-aws-credentials@v1
-      #   with:
-      #     aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      #     aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      #     aws-region: us-east-2 # replace this with your aws-region
-
-      # - name: Upload files to S3 with AWS CLI
-      #   run: |
-      #     aws s3 sync public/ s3://${{ secrets.S3_BUCKET }}
-          
-#      - name: Invalidate CloudFront cache for all paths
-#        run: |
-#          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_ID }} --paths "/*"
