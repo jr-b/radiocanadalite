@@ -5,9 +5,6 @@ on:
   schedule:
   - cron:  '*/30 * * * *'
 
-env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -31,16 +28,14 @@ jobs:
       - name: Build the website
         run: npm run build
     
-      - name: Commit files
-        run: |
-          git config --global user.name 'jr-b-bot'
-          git config --global user.email 'jr-b@users.noreply.github.com'
-          git add .
-          git commit -a -m "build radiocanadamini"
-      - name: Push changes
-        run: |
-          git remote add origin https://github.com/jr-b/jr-b.github.io.git
-          git push -u origin main
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GHPAGES_TOKEN }}          
+          publish_dir: ./public
+          external_repository: jr-b/jr-b.github.io
+          keep_files: true
+
 
 
       # - name: Configure AWS Credentials
