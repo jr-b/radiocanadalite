@@ -3,7 +3,7 @@ name: Deploy to Github Pages
 on:
   push:
   schedule:
-  - cron:  '*/30 * * * *' # every 30 min
+    - cron:  '*/28 * * * *' # every 30 min
 
 jobs:
   build_and_deploy:
