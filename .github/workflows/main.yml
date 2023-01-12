@@ -1,4 +1,4 @@
-name: Build and Deploy to S3
+name: Deploy to Github Pages
 
 on:
   push:
@@ -35,12 +35,12 @@ jobs:
         run: |
           git config --global user.name 'jr-b-bot'
           git config --global user.email 'jr-b@users.noreply.github.com'
-          git remote set-url --push origin https://jr-b:$GITHUB_TOKEN@github.com/jr-b.github.io
-          git add -A
+          git add .
           git commit -a -m "build radiocanadamini"
       - name: Push changes
         run: |
-          git push
+          git remote add origin https://github.com/jr-b/jr-b.github.io.git
+          git push -u origin main
 
 
       # - name: Configure AWS Credentials
