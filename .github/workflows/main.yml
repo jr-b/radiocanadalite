@@ -35,11 +35,11 @@ jobs:
         run: |
           git config --global user.name 'jr-b-bot'
           git config --global user.email 'jr-b@users.noreply.github.com'
+          git remote set-url --push origin https://jr-b:$GITHUB_TOKEN@github.com/jr-b.github.io
           git add -A
           git commit -a -m "build radiocanadamini"
       - name: Push changes
         run: |
-          git remote set-url --push origin https://jr-b:$GITHUB_TOKEN@github.com/jr-b.github.io
           git push
 
 
