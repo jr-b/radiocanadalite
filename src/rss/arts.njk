@@ -1,0 +1,27 @@
+---json
+{
+  "permalink": "/rss/arts.xml",
+  "eleventyExcludeFromCollections": true
+}
+---
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ meta.url }}" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>{{ meta.siteName }} - Arts</title>
+    <link>{{ meta.url }}</link>
+    <atom:link href="{{ meta.url }}{{ permalink }}" rel="self" type="application/rss+xml" />
+    <description>{{ meta.subtitle }}</description>
+    <language>{{ meta.language }}</language>
+    {% for post in arts %}
+    <item>
+      <title>{{ post.address.title }}</title>
+      <link>{{ meta.url }}/arts/articles/{{ post.address.id }}/</link>
+      <description>{{ post.address.summary }}</description>
+      <pubDate>{{ post.address.publishedLastTimeAt }}</pubDate>
+      <dc:creator>{% if post.address.signaturesV2[0].person.name %}{{ post.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</dc:creator>
+      <content type="html" xml:lang="fr"><![CDATA[{{ post.address.body.html }}]]></content>
+      <guid>{{ post.address.id }}</guid>
+    </item>
+    {%- endfor %}
+  </channel>
+</rss>

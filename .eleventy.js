@@ -4,6 +4,7 @@ const HumanReadable = require("human-readable-numbers");
 const lazyImagesPlugin = require('eleventy-plugin-lazyimages');
 const slugify = require("slugify");
 const eleventyNavigationPlugin = require("@11ty/eleventy-navigation");
+const pluginRss = require("@11ty/eleventy-plugin-rss");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/scss/");
@@ -13,6 +14,7 @@ module.exports = function (eleventyConfig) {
 //  eleventyConfig.addPlugin(lazyImagesPlugin);
 
 eleventyConfig.addPlugin(eleventyNavigationPlugin);
+eleventyConfig.addPlugin(pluginRss);
 
 
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);

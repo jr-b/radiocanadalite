@@ -6,4 +6,5 @@ module.exports = {
   siteDescription:
     "Une version légère de Radio-Canada.ca",
   authorName: "Jérémi Robitaille", // optional
+  language: "fr",
 };
