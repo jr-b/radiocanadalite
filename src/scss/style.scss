@@ -111,6 +111,7 @@ body > footer div {
 
 article * + *:not(.bmc-btn-text) {
   margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 /* Typography */
@@ -307,6 +308,15 @@ figcaption {
     background-color: var(--round-notif-color);
     padding: 4px 8px 4px 8px;
     display: inline;
+    margin: 0px 10px 10px 0px;
+}
+
+.rss-icon {
+  stroke: currentColor;
+  stroke-width: 1;
+  width: 1rem;
+  height: 1rem;
+  fill: none;
 }
 
 /* https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */

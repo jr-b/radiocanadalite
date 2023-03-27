@@ -22,7 +22,7 @@ layout: base.njk
     {% if articles.address.lead %}
     {{ articles.address.lead | safe }} {% endif %}
     {% if articles.address.contentType.id == "26" %}
-    <a href="{{ articles.address.canonicalWebLink.href }}">Contenu audio disponible sur Ohdio - {{ articles.address.ancestors[0].title }} </a>
+    <a href="{{ articles.address.canonicalWebLink.href }}">Contenu audio/vidéo disponible sur directement sur Radio-Canada.ca - {{ articles.address.ancestors[0].title }} </a>
     <p>{{ articles.address.summary | safe }}</p> {% endif %}
     {% if articles.address.contentType.id == "90" %}
       {% for item in articles.address.navigations %}
