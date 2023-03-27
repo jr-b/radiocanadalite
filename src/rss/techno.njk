@@ -16,7 +16,7 @@ eleventyExcludeFromCollections: true
     <item>
       <title>{{ post.address.title }}</title>
       <link>{{ meta.url }}/techno/articles/{{ post.address.id }}/</link>
-      <description>{{ post.address.summary }}</description>
+      <description><![CDATA[{{ post.address.summary }}]]></description>
       <pubDate>{{ post.address.publishedLastTimeAt }}</pubDate>
       <dc:creator>{% if post.address.signaturesV2[0].person.name %}{{ post.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</dc:creator>
       <guid isPermaLink="true">{{ meta.url }}/techno/articles/{{ post.address.id }}/</guid>
