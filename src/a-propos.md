@@ -1,6 +1,7 @@
 ---
 layout: page.njk
 title: À propos de Radio-Canada Mini
+permalink: /a-propos/
 ---
 ### Pourquoi faire ce site?
 L’objectif initial était d’apprendre à utiliser le générateur de site statique [Eleventy](https://11ty.dev/) tout en produisant un site utile et pertinent, autant pour moi que pour d’autres. Mon expérience de navigation et de lecture sur [Radio-Canada.ca](https://ici.radio-canada.ca/) étant de plus en plus frustrante, j’ai décidé de réutiliser le contenu du site tout en le mettant de l’avant sur un site qui rejoint davantage l’idée que je me fais du web de qualité, respectueux et accessible.

@@ -1,25 +1,25 @@
 ---
-permalink: /rss/arts.xml
+permalink: /rss/economie.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ meta.url }}" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ meta.siteName }} - Arts</title>
-    <link>{{ meta.url }}/arts</link>
+    <title>{{ meta.siteName }} - Économie</title>
+    <link>{{ meta.url }}/economie</link>
     <atom:link href="{{ meta.url }}{{ permalink }}" rel="self" type="application/rss+xml" />
     <description><![CDATA[ {{ meta.siteDescription }} - Mise à jour toutes les 30 minutes. ]]></description>
     <language>{{ meta.language }}</language>
     <lastBuildDate>{{ buildtime.timestamp }}</lastBuildDate>
-    {% for post in arts %}
+    {% for post in economie %}
     {% if (post.address.body.html) or (post.address.navigations) %}
     <item>
       <title>{{ post.address.title }}</title>
-      <link>{{ meta.url }}/arts/articles/{{ post.address.id }}/</link>
+      <link>{{ meta.url }}/economie/articles/{{ post.address.id }}/</link>
       <description>{{ post.address.summary }}</description>
       <pubDate>{{ post.address.publishedLastTimeAt }}</pubDate>
       <dc:creator>{% if post.address.signaturesV2[0].person.name %}{{ post.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</dc:creator>
-      <guid isPermaLink="true">{{ meta.url }}/arts/articles/{{ post.address.id }}/</guid>
+      <guid isPermaLink="true">{{ meta.url }}/economie/articles/{{ post.address.id }}/</guid>
       <enclosure type="image/jpeg" length="0" url="{{ post.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}"/>
     </item>
     {% endif %}

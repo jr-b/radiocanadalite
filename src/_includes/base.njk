@@ -1,3 +1,4 @@
+{% set currentUrl %}{{ page.url }}{% endset %}
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -24,15 +25,18 @@
   <title>{{ articles.address.title | safe }}{{ title }} | {{ meta.siteName }}</title>
   <link rel="stylesheet" href="{{ '/css/style.css' | url }}">  
   <link rel="shortcut icon" href="#" />
+  <!-- RSS Feed -->
+  {% for key in collections.all | eleventyNavigation%}
+    {% if currentUrl === key.url %}
+    <link rel="alternate" type="application/rss+xml" title="{{ key.title }} - {{ meta.siteName }}" href="{{ meta.url }}/rss{{ key.url }}.xml" />
+    {% endif %}
+    {% endfor %}
+    {% if currentUrl === '/' %}<link rel="alternate" type="application/rss+xml" title="À la une - {{ meta.siteName }}" href="{{ meta.url }}/rss/a-la-une.xml" />{% endif %}
 </head>
 <body>
   {% include "nav.njk" %}
-  
+
   {{ content | safe }}
-
-  <p id="demo"></p>
-
-
   {% include "footer.njk" %}
   <script src="/utils/mode-switcher.js"></script>
   {% include "load-image-js.njk" %}

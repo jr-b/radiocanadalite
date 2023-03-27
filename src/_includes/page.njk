@@ -1,9 +1,16 @@
 ---
 layout: base.njk
 ---
-
+{% set currentUrl %}{{ page.url }}{% endset %}
+{% set navPages = collections.all | eleventyNavigation %}
 <header>
-  <h3>{{ title }}</h3>
+  <h3>{{ title }}{% if currentUrl !== '/a-propos/'%} <a href="{% if currentUrl === '/' %}/rss/a-la-une.xml{% else %}/rss/{{ page.fileSlug }}.xml{% endif %}">
+  <svg class="rss-icon" viewBox="0 0 32 32">
+  <circle cx="5" cy="27" r="5" fill="currentColor" stroke="none" />
+  <circle cx="0" cy="32" r="18" stroke-width="7" />
+  <circle cx="0" cy="32" r="28" stroke-width="7" />
+</svg>
+  </a>{% endif %}</h3>
 </header>
 <main>
   <article>
