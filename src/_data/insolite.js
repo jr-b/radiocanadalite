@@ -1,3 +1,5 @@
+const fetch = require("node-fetch");
+
 async function fetchAndConcatenateJSON(url) {
   let concatenatedJSON = [];
 
