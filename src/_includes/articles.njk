@@ -3,34 +3,34 @@ layout: base.njk
 ---
   
 <header>
-  <p>{% if articles.address.publishedLastTimeAt %}<time>{{ articles.address.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm") }} (GMT-4).</time>{% endif %}
+  <p>{% if articles.publishedLastTimeAt %}<time>{{ articles.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm") }} (GMT-4).</time>{% endif %}
     <span class="author">Un article écrit par
-      {% if articles.address.signaturesV2[0].person.name %}{{ articles.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span></p>
-  <h2>{{ articles.address.title | safe }}</h2>
-  <p>{% if articles.address.themeTag.name %}<a href="/{{ articles.address.themeTag.name | slugify }}/">{{ articles.address.themeTag.name }}</a> > {{ articles.address.subThemeTags[0].name }}{% endif %}</p>
+      {% if articles.signaturesV2[0].person.name %}{{ articles.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span></p>
+  <h2>{{ articles.title | safe }}</h2>
+  <p>{% if articles.themeTag.name %}<a href="/{{ articles.themeTag.name | slugify }}/">{{ articles.themeTag.name }}</a> > {{ articles.subThemeTags[0].name }}{% endif %}</p>
 </header>
 <main>
   <article>
-{% if articles.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}
+{% if articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}
 <figure>
-<a class="load-image" href="{{ articles.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}">{{ articles.address.shareableSummaryMultimediaContent.legend }}<i>Cliquez ici pour afficher l'image d'en-tête</i></a>  
-<figcaption style="display:none;">{{ articles.address.shareableSummaryMultimediaContent.legend }}</figcaption>
+<a class="load-image" href="{{ articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}">{{ articles.shareableSummaryMultimediaContent.legend }}<i>Cliquez ici pour afficher l'image d'en-tête</i></a>  
+<figcaption style="display:none;">{{ articles.shareableSummaryMultimediaContent.legend }}</figcaption>
 </figure>
 {% endif %}
-{% if articles.address.deck %}
-    {{ articles.address.deck | safe }} {% endif %}
-    {% if articles.address.lead %}
-    {{ articles.address.lead | safe }} {% endif %}
-    {% if articles.address.contentType.id == "26" %}
-    <a href="{{ articles.address.canonicalWebLink.href }}">Contenu audio/vidéo disponible sur directement sur Radio-Canada.ca - {{ articles.address.ancestors[0].title }} </a>
-    <p>{{ articles.address.summary | safe }}</p> {% endif %}
-    {% if articles.address.contentType.id == "90" %}
-      {% for item in articles.address.navigations %}
+{% if articles.deck %}
+    {{ articles.deck | safe }} {% endif %}
+    {% if articles.lead %}
+    {{ articles.lead | safe }} {% endif %}
+    {% if articles.contentType.id == "26" %}
+    <a href="{{ articles.canonicalWebLink.href }}">Contenu audio/vidéo disponible sur directement sur Radio-Canada.ca - {{ articles.ancestors[0].title }} </a>
+    <p>{{ articles.summary | safe }}</p> {% endif %}
+    {% if articles.contentType.id == "90" %}
+      {% for item in articles.navigations %}
       {{ item.pageSection.body.html | safe }}
       {% endfor %}
          {% endif %}
-    {{ articles.address.body.html | safe }}
+    {{ articles.body.html | safe }}
   </article>
-  {% if articles.address.contentType.id != "26" %}
-  <aside><a href="{{ articles.address.canonicalWebLink.href }}">Lisez l'article sur Radio-Canada.ca</a></aside>{% endif %}
+  {% if articles.contentType.id != "26" %}
+  <aside><a href="{{ articles.canonicalWebLink.href }}">Lisez l'article sur Radio-Canada.ca</a></aside>{% endif %}
 </main>

@@ -1,89 +1,45 @@
-// const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
-// async function fetchNews() {
-//     // https://dmitripavlutin.com/javascript-fetch-async-await/
-//     // fetching two pages from the lineup
-//     const [page1, page2] = await Promise.all([
-//     fetch('https://services.radio-canada.ca/neuro/v1/topics/1005685?pagenumber=1'),
-//     fetch('https://services.radio-canada.ca/neuro/v1/topics/1005685?pagenumber=2')
-//     ]);
-//     const page1Json = await page1.json();
-//     const pag2Json = await page2.json();
-//     //console.log([page1, page2]);
-    
-//     // keeping only the selfLink and the codeName, page 1
-//     let newsIdArray1 = page1Json.items.map(id => {
-//             return {
-//                 id: id.referredContent.id
-//                 // for /topics endpoints, the structure is a bit different! items>referredContent>id
-//             }
-//     });
-    
-//     // keeping only the selfLink and the codeName, page 2
-//     let newsIdArray2 = pag2Json.items.map(id => {
-//             return {
-//                 id: id.referredContent.id
-//                 // for /topics endpoints, the structure is a bit different! items>referredContent>id
-//             }
-//     });
+async function fetchAndConcatenateJSON(url) {
+  let concatenatedJSON = [];
 
-//     // concat the two pages
-//     let newsIdFull = newsIdArray1.concat(newsIdArray2);
+  let currentPage = 1;
+  let lastPage = false;
 
-//     // filter for unique id
-//     const key = 'id';
-//     const arrayUniqueByKey = [...new Map(newsIdFull.map(item =>
-//     [item[key], item])).values()];
-    
-//     //console.log(arrayUniqueByKey);
-    
-//     // looping over every item, and fetching its full endpoint
-//     for (const newsData of arrayUniqueByKey){
-//             let url = `https://services.radio-canada.ca/neuro/v1/news-stories/${newsData.id}`;
-// //             console.log(url);
-//             let newsDataRequest = await fetch(url);
-//             let data = await newsDataRequest.json();
-//             newsData.address = data;
-//     }
-    
-//     //console.log(newsIdFull);
-//     return newsIdFull;
-    
-//  }
+  // build concatenatedJSON array with the items returned
+  const response = await fetch(url);
+  const json = await response.json();
 
+  concatenatedJSON.push(...json.items);
 
-// module.exports = fetchNews();
+  // build list of news id into an array
+  let newsIdArray = concatenatedJSON.map((item) => {
+    return {
+      id: item.referredContent.id,
+      //type: item.referredContent.primaryClassificationTag.codeName,
+    };
+  });
 
+  let fullNews = [];
+  // looping over every item, and fetching its full data
+  for (const newsData of newsIdArray) {
+    if (newsData.id !== null) {
+      let newsUrl = `https://services.radio-canada.ca/neuro/v1/news-stories/${newsData.id}`;
+      const newsDataRequest = await fetch(newsUrl);
+      const dataJson = await newsDataRequest.json();
+      fullNews.push(dataJson);
+    }
+  }
 
-// nouvelle tentative
-// https://developer.here.com/blog/integrating-geojson-in-your-static-sites
-
-const fetch = require('node-fetch');
-const Cache = require("@11ty/eleventy-fetch");
-
-module.exports = async function() {
-    let lineupdata = await Cache("https://services.radio-canada.ca/neuro/v1/topics/1005685", { 
-              duration: "2m", // 2minutes
-              type: "json" // also supports "text" or "buffer"
-            });       
-
-    let newsId = lineupdata.items.map(c => {
-        return {
-            id: c.referredContent.id
-            // for /topics endpoints, the structure is a bit different! items>referredContent>id
-        }
-    });
-
-    //https://stackoverflow.com/a/37576787/52160
-    for(const newsData of newsId) {
-        if (newsData.id != null){
-
-        let url = `https://services.radio-canada.ca/neuro/v1/news-stories/${newsData.id}`;
-
-        let newsDataRequest = await fetch(url);
-        let location = await newsDataRequest.json();
-        newsData.address = location;
-        }
-    }    
-    return newsId;
+  return fullNews;
 }
+
+let urlList = "https://services.radio-canada.ca/neuro/v1/topics/1005685";
+
+module.exports = fetchAndConcatenateJSON(urlList)
+  .then((fullNews) => {
+    return fullNews;
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });

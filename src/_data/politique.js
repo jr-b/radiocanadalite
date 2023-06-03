@@ -1,52 +1,56 @@
-const fetch = require('node-fetch');
+const fetch = require("node-fetch");
 
-async function fetchNews() {
-    // https://dmitripavlutin.com/javascript-fetch-async-await/
-    // fetching two pages from the lineup
-    const [page1, page2] = await Promise.all([
-    fetch('https://services.radio-canada.ca/neuro/v1/lineups/4175?pagenumber=1'),
-    fetch('https://services.radio-canada.ca/neuro/v1/lineups/4175?pagenumber=2')
-    ]);
-    const page1Json = await page1.json();
-    const pag2Json = await page2.json();
-    //console.log([page1, page2]);
-    
-    // keeping only the selfLink and the codeName, page 1
-    let newsIdArray1 = page1Json.contentItemSummaries.items.map(id => {
-            return {
-                id: id.selfLink,
-                type: id.classificationTag.codeName
-            }
-    });
-    
-    // keeping only the selfLink and the codeName, page 2
-    let newsIdArray2 = pag2Json.contentItemSummaries.items.map(id => {
-            return {
-                id: id.selfLink,
-                type: id.classificationTag.codeName
-            }
-    });
+async function fetchAndConcatenateJSON(url) {
+  let concatenatedJSON = [];
 
-    // concat the two pages
-    let newsIdFull = newsIdArray1.concat(newsIdArray2);
-    
-       //console.log(newsIdFull);
-    
-    // looping over every item, and fetching its full endpoint
-    for (const newsData of newsIdFull){
-        if (newsData.id !== null){    
+  let currentPage = 1;
+  let lastPage = false;
 
-            let url = `${newsData.id.href}`;
-//             console.log(url);
-            let newsDataRequest = await fetch(url);
-            let data = await newsDataRequest.json();
-            newsData.address = data;
+  // call each page available
+  // build concatenatedJSON array with the items returned
+  while (!lastPage) {
+    let tempUrl = url + "?pagenumber=" + currentPage;
+    const response = await fetch(tempUrl);
+    const json = await response.json();
+
+    concatenatedJSON.push(...json.contentItemSummaries.items);
+
+    const { contentItemSummaries } = json;
+    if (contentItemSummaries.nextPageLink === null) {
+      lastPage = true;
+    } else {
+      currentPage++;
     }
-    }    
-    //console.log(newsIdFull);
-    return newsIdFull;
-    
+  }
+
+  // build list of news id into an array
+  let newsIdArray = concatenatedJSON.map((item) => {
+    return {
+      id: item.selfLink,
+      type: item.classificationTag.codeName,
+    };
+  });
+
+  let fullNews = [];
+  // looping over every item, and fetching its full data
+  for (const newsData of newsIdArray) {
+    if (newsData.id !== null) {
+      let newsUrl = `${newsData.id.href}`;
+      const newsDataRequest = await fetch(newsUrl);
+      const dataJson = await newsDataRequest.json();
+      fullNews.push(dataJson);
+    }
+  }
+
+  return fullNews;
 }
 
+let urlList = "https://services.radio-canada.ca/neuro/v1/lineups/4175";
 
-module.exports = fetchNews();
+module.exports = fetchAndConcatenateJSON(urlList)
+  .then((fullNews) => {
+    return fullNews;
+  })
+  .catch((error) => {
+    console.error("Error:", error);
+  });

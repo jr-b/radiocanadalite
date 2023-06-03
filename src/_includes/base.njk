@@ -1,45 +1,43 @@
 {% set currentUrl %}{{ page.url }}{% endset %}
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-<!-- This page was built at {{ buildtime.timestamp | newsDate("dd LLL yyyy HH:mm:ss") }} GMT-4 -->
-<!-- The source code is available on Github: https://github.com/jr-b/radiocanadalite -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Radio-Canada Lite | Version légère de Radio-Canada.ca">
-  <meta name="Robots" content="index,follow">
-<!-- Open Graph Meta Tags Facebook, Twitter, etc. -->
-  <meta property="og:description" content="Radio-Canada Mini | Version légère de Radio-Canada.ca">
-  <meta property="og:title" content="{% if currentUrl === '/' %}Radio-Canada Mini | Version légère de Radio-Canada.ca{% elif currentUrl === '/a-propos/' %}{{ page.title }}{% else %}{{ articles.address.title }}{% endif %}">
-  <meta property="og:url" content="{{ meta.url }}">
-  <meta property="og:type" content="website">
-  {% if currentUrl !== '/' %}<meta property="og:article" content="article">{% endif %}
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@RadioCanadaMini">
-  <meta name="twitter:image" content="{% if articles.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}{{ articles.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}{% else %}https://ici.radio-canada.ca/content/_images/logo/svg/black/ici-radio-canada-ca.svg{% endif %}">
-  <meta property = "og: image" content = "{% if articles.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}{{ articles.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}{% else %}https://ici.radio-canada.ca/content/_images/logo/svg/black/ici-radio-canada-ca.svg{% endif %}" />    
-  <meta property = "og: locale" content = "fr_CA" />    
-  <meta property="og:locale:alternate" content="fr_FR" />
-
-  <title>{{ articles.address.title | safe }}{{ title }} | {{ meta.siteName }}</title>
-  <link rel="stylesheet" href="{{ '/css/style.css' | url }}">  
-  <link rel="shortcut icon" href="#" />
-  <!-- RSS Feed -->
-  {% for key in collections.all | eleventyNavigation%}
-    {% if currentUrl === key.url %}
-    <link rel="alternate" type="application/rss+xml" title="{{ key.title }} - {{ meta.siteName }}" href="{{ meta.url }}/rss{{ key.url }}.xml" />
-    {% endif %}
+  <head>
+    <!-- This page was built at {{ buildtime.timestamp | newsDate("dd LLL yyyy HH:mm:ss") }} GMT-4 -->
+    <!-- The source code is available on Github: https://github.com/jr-b/radiocanadalite --> <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Radio-Canada Lite | Version légère de Radio-Canada.ca">
+    <meta
+    name="Robots" content="index,follow"> <!-- Open Graph Meta Tags Facebook, Twitter, etc. -->
+    <meta property="og:description" content="Radio-Canada Mini | Version légère de Radio-Canada.ca">
+    <meta property="og:title" content="{% if currentUrl === '/' %}Radio-Canada Mini | Version légère de Radio-Canada.ca{% elif currentUrl === '/a-propos/' %}{{ page.title }}{% else %}{{ articles.title }}{% endif %}">
+    <meta property="og:url" content="{{ meta.url }}">
+    <meta property="og:type" content="website">
+    {% if currentUrl !== '/' %}<meta property="og:article" content="article">{% endif %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@RadioCanadaMini">
+    <meta name="twitter:image" content="{% if articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}{{ articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}{% else %}https://ici.radio-canada.ca/content/_images/logo/svg/black/ici-radio-canada-ca.svg{% endif %}">
+    <meta property="og: image" content="{% if articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}{{ articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}{% else %}https://ici.radio-canada.ca/content/_images/logo/svg/black/ici-radio-canada-ca.svg{% endif %}"/>
+    <meta property="og: locale" content="fr_CA"/>
+    <meta property="og:locale:alternate" content="fr_FR"/>
+    <title>{{ articles.title | safe }}{{ title }} | {{ meta.siteName }}</title>
+    <link rel="stylesheet" href="{{ '/css/style.css' | url }}">
+    <link
+    rel="shortcut icon" href="#"/>
+    <!-- RSS Feed -->
+    {% for key in collections.all | eleventyNavigation %}
+      {% if currentUrl === key.url %}
+        <link rel="alternate" type="application/rss+xml" title="{{ key.title }} - {{ meta.siteName }}" href="{{ meta.url }}/rss{{ key.url }}.xml"/>
+      {% endif %}
     {% endfor %}
-    {% if currentUrl === '/' %}<link rel="alternate" type="application/rss+xml" title="À la une - {{ meta.siteName }}" href="{{ meta.url }}/rss/a-la-une.xml" />{% endif %}
-</head>
-<body>
-  {% include "nav.njk" %}
-
-  {{ content | safe }}
-  {% include "footer.njk" %}
-  <script src="/utils/mode-switcher.js"></script>
-  {% include "load-image-js.njk" %}
-  {% include "countdown.njk" %}
-</body>
+    {% if currentUrl === '/' %}<link rel="alternate" type="application/rss+xml" title="À la une - {{ meta.siteName }}" href="{{ meta.url }}/rss/a-la-une.xml"/>{% endif %}
+  </head>
+  <body>
+    {% include "nav.njk" %}
+    {{ content | safe }}
+    {% include "footer.njk" %}
+    <script src="/utils/mode-switcher.js"></script>
+    {% include "load-image-js.njk" %}
+    {% include "countdown.njk" %}
+  </body>
 </html>
