@@ -4,5 +4,6 @@ pagination:
     data: techno
     size: 1
     alias: articles
-permalink: "/techno/articles/{% if articles.address.id %}{{ articles.address.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
+permalink: "/techno/articles/{% if articles.id %}{{ articles.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
 ---
+

@@ -4,9 +4,11 @@ layout: page.njk
 ---
 
 <ul style="list-style: none;margin-block-start: 0px;padding-inline-start: 0px;">
-{% for newsstories in ppagemtl %}
-{% if (newsstories.address.body.html) or (newsstories.address.navigations) %}
-<li>— <a href="/a-la-une/articles/{{ newsstories.address.id | slugify }}/">{{ newsstories.address.title | safe }}</a></li>
-{% endif %}
-{% endfor %}
+    {% for newsstories in ppagemtl %}
+        {% if (newsstories.body.html) or (newsstories.navigations) %}
+            <li>—
+                <a href="/a-la-une/articles/{{ newsstories.id | slugify }}/">{{ newsstories.title | safe }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
 </ul>

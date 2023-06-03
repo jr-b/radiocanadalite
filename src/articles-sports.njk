@@ -4,5 +4,6 @@ pagination:
     data: sports
     size: 1
     alias: articles
-permalink: "/sports/articles/{% if articles.address.id %}{{ articles.address.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
+permalink: "/sports/articles/{% if articles.id %}{{ articles.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
 ---
+

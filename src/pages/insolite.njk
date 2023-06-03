@@ -7,9 +7,11 @@ eleventyNavigation:
 ---
 
 <ul style="list-style: none;margin-block-start: 0px;padding-inline-start: 0px;">
-{% for newsstories in insolite %}
-{% if (newsstories.address.body.html) or (newsstories.address.navigations) %}
-<li>— <a href="/insolite/articles/{{ newsstories.address.id }}/">{{ newsstories.address.title | safe }}</a></li>
-{% endif %}
-{% endfor %}
+  {% for newsstories in insolite %}
+    {% if (newsstories.body.html) or (newsstories.navigations) %}
+      <li>—
+        <a href="/insolite/articles/{{ newsstories.id }}/">{{ newsstories.title | safe }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
 </ul>

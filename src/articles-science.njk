@@ -4,5 +4,6 @@ pagination:
     data: science
     size: 1
     alias: articles
-permalink: "/science/articles/{% if articles.address.id %}{{ articles.address.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
+permalink: "/science/articles/{% if articles.id %}{{ articles.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
 ---
+

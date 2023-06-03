@@ -4,5 +4,6 @@ pagination:
     data: insolite
     size: 1
     alias: articles
-permalink: "/insolite/articles/{% if articles.address.id %}{{ articles.address.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
+permalink: "/insolite/articles/{% if articles.id %}{{ articles.id }}{% else %}{{ pagination.pageNumber + 1 }}{% endif %}/"
 ---
+

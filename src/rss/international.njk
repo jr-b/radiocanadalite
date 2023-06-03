@@ -12,15 +12,15 @@ eleventyExcludeFromCollections: true
     <language>{{ meta.language }}</language>
     <lastBuildDate>{{ buildtime.timestamp }}</lastBuildDate>
     {% for post in international %}
-    {% if (post.address.body.html) or (post.address.navigations) %}
+    {% if (post.body.html) or (post.navigations) %}
     <item>
-      <title>{{ post.address.title }}</title>
-      <link>{{ meta.url }}/international/articles/{{ post.address.id }}/</link>
-      <description><![CDATA[{{ post.address.summary }}]]></description>
-      <pubDate>{{ post.address.publishedLastTimeAt }}</pubDate>
-      <dc:creator>{% if post.address.signaturesV2[0].person.name %}{{ post.address.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</dc:creator>
-      <guid isPermaLink="true">{{ meta.url }}/international/articles/{{ post.address.id }}/</guid>
-      <enclosure type="image/jpeg" length="0" url="{{ post.address.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}"/>
+      <title>{{ post.title }}</title>
+      <link>{{ meta.url }}/international/articles/{{ post.id }}/</link>
+      <description><![CDATA[{{ post.summary }}]]></description>
+      <pubDate>{{ post.publishedLastTimeAt }}</pubDate>
+      <dc:creator>{% if post.signaturesV2[0].person.name %}{{ post.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</dc:creator>
+      <guid isPermaLink="true">{{ meta.url }}/international/articles/{{ post.id }}/</guid>
+      <enclosure type="image/jpeg" length="0" url="{{ post.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}"/>
     </item>
     {% endif %}
     {%- endfor %}
