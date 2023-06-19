@@ -6,52 +6,55 @@
 
 /* mode swithcer - dark light */
 /* https://derekkedziora.com/blog/dark-mode-revisited */
-html, html[data-theme="light"] { 
-	--light-text-color: rgb(72, 72, 74);
-  	--link-color: rgb(0, 112, 201);
-    --hover-link-color: #005da7;
-  	--main-background-color: rgb(255, 255, 255);
-  	--main-text-color: rgb(51, 51, 51);
-    --quote-backgroud-color: rgb(0, 0, 0, 0.05);
-    --round-notif-color: rgb(251, 205, 165);
+html,
+html[data-theme="light"] {
+  --light-text-color: rgb(72, 72, 74);
+  --link-color: rgb(0, 112, 201);
+  --hover-link-color: #005da7;
+  --main-background-color: rgb(255, 255, 255);
+  --main-text-color: rgb(51, 51, 51);
+  --quote-backgroud-color: rgb(0, 0, 0, 0.05);
+  --round-notif-color: rgb(251, 205, 165);
 }
 
 html[data-theme="dark"] {
-		--light-text-color: rgb(199, 199, 204);
-  		--link-color: rgb( 100, 210, 255);
-      --hover-link-color: #86dcff;
-  		--main-background-color: rgb(28, 28, 30);
-  		--main-text-color: rgb(229, 229, 234);
-      --quote-backgroud-color: rgb(119, 119, 129);
-      --round-notif-color: rgb(119, 119, 129, 0.33);
+  --light-text-color: rgb(199, 199, 204);
+  --link-color: rgb(100, 210, 255);
+  --hover-link-color: #86dcff;
+  --main-background-color: rgb(28, 28, 30);
+  --main-text-color: rgb(229, 229, 234);
+  --quote-backgroud-color: rgb(119, 119, 129);
+  --round-notif-color: rgb(119, 119, 129, 0.33);
 
-	}
-
-@media (prefers-color-scheme: dark) {
-	html, html[data-theme="dark"] {
-		--light-text-color: rgb(199, 199, 204);
-  		--link-color: rgb( 100, 210, 255);
-  		--main-background-color: rgb(28, 28, 30);
-  		--main-text-color: rgb(229, 229, 234);
-      --quote-backgroud-color: rgb(119, 119, 129, 0.33);
-      --round-notif-color: rgb(119, 119, 129, 0.33);
-	}
-	
-	html[data-theme="light"] { 
-	--light-text-color: rgb(72, 72, 74);
-  	--link-color: rgb(0, 112, 201);
-  	--main-background-color: rgb(255, 255, 255);
-  	--main-text-color: rgb(51, 51, 51);
-    --quote-backgroud-color: rgb(0, 0, 0, 0.05);
-    --round-notif-color: rgb(251, 205, 165);
-	}
 }
 
 @media (prefers-color-scheme: dark) {
-	img {
-	  filter: brightness(.8) contrast(1.2);
-	}
+
+  html,
+  html[data-theme="dark"] {
+    --light-text-color: rgb(199, 199, 204);
+    --link-color: rgb(100, 210, 255);
+    --main-background-color: rgb(28, 28, 30);
+    --main-text-color: rgb(229, 229, 234);
+    --quote-backgroud-color: rgb(119, 119, 129, 0.33);
+    --round-notif-color: rgb(119, 119, 129, 0.33);
   }
+
+  html[data-theme="light"] {
+    --light-text-color: rgb(72, 72, 74);
+    --link-color: rgb(0, 112, 201);
+    --main-background-color: rgb(255, 255, 255);
+    --main-text-color: rgb(51, 51, 51);
+    --quote-backgroud-color: rgb(0, 0, 0, 0.05);
+    --round-notif-color: rgb(251, 205, 165);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  img {
+    filter: brightness(.8) contrast(1.2);
+  }
+}
 
 /* Layout */
 
@@ -60,13 +63,13 @@ body {
   flex-direction: column;
   min-height: 100vh;
   padding: 5vh clamp(1rem, 5vw, 3rem) 1rem;
-  font-family:  system-ui, sans-serif;
+  font-family: system-ui, sans-serif;
   line-height: 1.5;
   color: var(--main-text-color);
   background-color: var(--main-background-color);
 }
 
-body > * {
+body>* {
   --layout-spacing: max(3vh, 1rem);
   --max-width: 70ch;
   width: min(100%, var(--max-width));
@@ -93,23 +96,23 @@ nav [aria-current="page"] {
 
 header,
 main,
-main > * + * {
+main>*+* {
   margin-top: var(--layout-spacing);
 }
 
-body > footer {
+body>footer {
   margin-top: auto;
   padding-top: var(--layout-spacing);
 }
 
-body > footer div {
+body>footer div {
   border-top: 1px solid #ccc;
   padding-top: 0.5em;
   font-size: 0.9rem;
   color: var(--main-text-color);
 }
 
-article * + *:not(.bmc-btn-text) {
+article *+*:not(.bmc-btn-text) {
   margin-top: 1em;
   margin-bottom: 1em;
 }
@@ -132,7 +135,7 @@ a {
   text-underline-offset: 0.08em;
 }
 
-a:hover{
+a:hover {
   color: var(--hover-link-color);
 }
 
@@ -141,22 +144,22 @@ a:focus {
   outline-offset: 0.2em;
 }
 
-blockquote > footer {
-font-weight: bold;
+blockquote>footer {
+  font-weight: bold;
 }
 
 /* Media */
 
 article img {
   cursor: pointer;
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    min-height: 20rem;
-    max-height: 40vh;
-    object-fit: cover;
-    border-radius: 10px;
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 20rem;
+  max-height: 40vh;
+  object-fit: cover;
+  border-radius: 10px;
   transition: all 0.3s ease;
 
   &:before {
@@ -187,7 +190,9 @@ article img {
   transition: all 0.3s ease;
   padding: 1em 1em;
 
-  & i {font-size: small;}
+  & i {
+    font-size: small;
+  }
 
   &:hover {
     opacity: 1;
@@ -234,18 +239,18 @@ blockquote {
 
 .style_logo {
   width: 2rem;
-height: 2rem;
--webkit-transform: translateY(.25rem);
-transform: translateY(.25rem);
-margin-right: .625rem;
+  height: 2rem;
+  -webkit-transform: translateY(.25rem);
+  transform: translateY(.25rem);
+  margin-right: .625rem;
 }
 
 .style_site {
   width: 2rem;
-height: 2rem;
--webkit-transform: translateY(.25rem);
-transform: translateY(.25rem);
-margin-right: .625rem;
+  height: 2rem;
+  -webkit-transform: translateY(.25rem);
+  transform: translateY(.25rem);
+  margin-right: .625rem;
 }
 
 .meta-article {
@@ -295,20 +300,20 @@ main article .framed ul {
 }
 
 figcaption {
-  text-align:center;
-  margin-top:0;
+  text-align: center;
+  margin-top: 0;
   font-size: smaller;
 }
 
-.round-header{
+.round-header {
   border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border-bottom-left-radius: 50px;
-    background-color: var(--round-notif-color);
-    padding: 4px 8px 4px 8px;
-    display: inline;
-    margin: 0px 10px 10px 0px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-color: var(--round-notif-color);
+  padding: 4px 8px 4px 8px;
+  display: inline;
+  margin: 0px 10px 10px 0px;
 }
 
 .rss-icon {
@@ -317,38 +322,39 @@ figcaption {
   width: 1rem;
   height: 1rem;
   fill: none;
+  margin-left: 2px;
 }
 
 /* https://www.florin-pop.com/blog/2019/03/css-pulse-effect/ */
-.blob { 
+.blob {
   display: inline-block;
- background: rgb(6, 192, 6) !important;
- border-radius: 50%;
- margin-right: 5px;
- height: 10px;
- width: 10px;
- box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
- transform: scale(1);
- animation: pulse 2s infinite;
+  background: rgb(6, 192, 6) !important;
+  border-radius: 50%;
+  margin-right: 5px;
+  height: 10px;
+  width: 10px;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+  transform: scale(1);
+  animation: pulse 2s infinite;
 }
 
 @keyframes pulse {
- 0% {
-   transform: scale(0.95);
-   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
- }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
 
- 70% {
-   transform: scale(1);
-   box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
- }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
 
- 100% {
-   transform: scale(0.95);
-   box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
- }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
 }
 
-.framed{
+.framed {
   display: none;
 }
