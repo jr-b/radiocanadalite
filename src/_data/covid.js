@@ -6,6 +6,10 @@ async function fetchAndConcatenateJSON(url) {
   let currentPage = 1;
   let lastPage = false;
 
+  function onlyUnique(value, index, array) {
+    return array.findIndex(v => v.id == value.id) === index;
+  }
+
   // build concatenatedJSON array with the items returned
   const response = await fetch(url);
   const json = await response.json();
@@ -20,9 +24,11 @@ async function fetchAndConcatenateJSON(url) {
     };
   });
 
+  let filteredNewsIdArray = newsIdArray.filter(onlyUnique);
+
   let fullNews = [];
   // looping over every item, and fetching its full data
-  for (const newsData of newsIdArray) {
+  for (const newsData of filteredNewsIdArray) {
     if (newsData.id !== null) {
       let newsUrl = `https://services.radio-canada.ca/neuro/v1/news-stories/${newsData.id}`;
       const newsDataRequest = await fetch(newsUrl);

@@ -10,7 +10,7 @@ async function fetchAndConcatenateJSON(url) {
   let lastPage = false;
 
   function onlyUnique(value, index, array) {
-    return array.indexOf(value) === index;
+    return array.findIndex(v => v.id == value.id) === index;
   }
 
   while (!lastPage) {
