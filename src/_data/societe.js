@@ -7,7 +7,7 @@ async function fetchAndConcatenateJSON(url) {
   let lastPage = false;
 
   function onlyUnique(value, index, array) {
-    return array.findIndex(v => v.id == value.id) === index;
+    return array.findIndex(v => v.id.href == value.id.href) === index;
   }
 
   // call each page available

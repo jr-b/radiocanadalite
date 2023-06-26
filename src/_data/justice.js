@@ -7,7 +7,7 @@ async function fetchAndConcatenateJSON(url) {
   let lastPage = false;
 
   function onlyUnique(value, index, array) {
-    return array.findIndex(v => v.id == value.id) === index;
+    return array.findIndex(v => v.id.href == value.id.href) === index;
   }
 
 
@@ -37,7 +37,7 @@ async function fetchAndConcatenateJSON(url) {
   });
 
   let filteredNewsIdArray = newsIdArray.filter(onlyUnique);
-
+  //console.log(filteredNewsIdArray);
 
   let fullNews = [];
   // looping over every item, and fetching its full data

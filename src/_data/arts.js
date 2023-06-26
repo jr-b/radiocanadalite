@@ -7,14 +7,18 @@ async function fetchAndConcatenateJSON(url) {
   let lastPage = false;
 
   function onlyUnique(value, index, array) {
-    return array.findIndex(v => v.id == value.id) === index;
+    return array.findIndex(v => v.id.href == value.id.href) === index;
   }
 
   // call each page available
   // build concatenatedJSON array with the items returned
   while (!lastPage) {
     let tempUrl = url + "?pagenumber=" + currentPage;
-    const response = await fetch(tempUrl);
+    const response = await fetch(tempUrl, {
+      headers: {
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+      }
+    });
     const json = await response.json();
 
     concatenatedJSON.push(...json.contentItemSummaries.items);
@@ -43,7 +47,11 @@ async function fetchAndConcatenateJSON(url) {
   for (const newsData of filteredNewsIdArray) {
     if (newsData.id !== null) {
       let newsUrl = `${newsData.id.href}`;
-      const newsDataRequest = await fetch(newsUrl);
+      const newsDataRequest = await fetch(newsUrl, {
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
+        }
+      });
       const dataJson = await newsDataRequest.json();
       fullNews.push(dataJson);
     }
