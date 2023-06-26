@@ -52,7 +52,7 @@ async function fetchAndConcatenateJSON(url) {
   return fullNews;
 }
 
-let urlList = "https://services.radio-canada.ca/neuro/v1/lineups/92411";
+let urlList = "https://services.radio-canada.ca/neuro/v1/lineups/96";
 
 module.exports = fetchAndConcatenateJSON(urlList)
   .then((fullNews) => {
