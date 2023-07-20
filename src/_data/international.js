@@ -40,12 +40,14 @@ async function fetchAndConcatenateJSON(url) {
   }
 
   // build list of news id into an array
-  let newsIdArray = concatenatedJSON.map((item) => {
-    return {
-      id: item.id,
-      type: item.contentTypeId,
-    };
-  });
+  let newsIdArray = concatenatedJSON
+    .filter(concatenatedJSON => concatenatedJSON.id)
+    .map((item) => {
+      return {
+        id: item.id,
+        type: item.contentTypeId,
+      };
+    });
 
   let filteredNewsIdArray = [...new Set(newsIdArray)];
   //console.log(filteredNewsIdArray);

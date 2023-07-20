@@ -28,19 +28,21 @@ async function fetchAndConcatenateJSON(url) {
   }
 
   // build list of news id into an array
-  let newsIdArray = concatenatedJSON.map((item) => {
-    return {
-      id: item.selfLink,
-      type: item.classificationTag.codeName,
-    };
-  });
+  let newsIdArray = concatenatedJSON
+    .filter(concatenatedJSON => concatenatedJSON.selfLink)
+    .map((item) => {
+      return {
+        id: item.selfLink,
+        type: item.classificationTag.codeName,
+      };
+    });
 
 
   let noNullArray = newsIdArray.filter(item => item.id !== null);
 
   let filteredNewsIdArray = noNullArray.filter(onlyUnique);
 
-  console.log(filteredNewsIdArray);
+  //console.log(filteredNewsIdArray);
 
   let fullNews = [];
   // looping over every item, and fetching its full data

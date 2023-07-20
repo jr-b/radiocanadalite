@@ -30,12 +30,14 @@ async function fetchAndConcatenateJSON(url) {
     }
   }
 
-  let newsIdArray = concatenatedJSON.map((item) => {
-    return {
-      id: item.id,
-      type: item.contentTypeId,
-    };
-  });
+  let newsIdArray = concatenatedJSON
+    .filter(concatenatedJSON => concatenatedJSON.id)
+    .map((item) => {
+      return {
+        id: item.id,
+        type: item.contentTypeId,
+      };
+    });
 
   let filteredNewsIdArray = newsIdArray.filter(onlyUnique);
 

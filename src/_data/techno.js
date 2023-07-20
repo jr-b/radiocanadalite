@@ -29,13 +29,14 @@ async function fetchAndConcatenateJSON(url) {
   }
 
   // build list of news id into an array
-  let newsIdArray = concatenatedJSON.map((item) => {
-    return {
-      id: item.id,
-      type: item.classificationTag.codeName,
-    };
-  });
-
+  let newsIdArray = concatenatedJSON
+    .filter(concatenatedJSON => concatenatedJSON.id)
+    .map((item) => {
+      return {
+        id: item.id,
+        type: item.classificationTag.codeName,
+      };
+    });
   let filteredNewsIdArray = newsIdArray.filter(onlyUnique);
   //console.log(filteredNewsIdArray);
 

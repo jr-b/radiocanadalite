@@ -17,12 +17,14 @@ async function fetchAndConcatenateJSON(url) {
   concatenatedJSON.push(...json.items);
 
   // build list of news id into an array
-  let newsIdArray = concatenatedJSON.map((item) => {
-    return {
-      id: item.referredContent.id,
-      //type: item.referredContent.primaryClassificationTag.codeName,
-    };
-  });
+  let newsIdArray = concatenatedJSON
+    .filter(concatenatedJSON => concatenatedJSON.referredContent)
+    .map((item) => {
+      return {
+        id: item.referredContent.id,
+        //type: item.referredContent.primaryClassificationTag.codeName,
+      };
+    });
 
   let filteredNewsIdArray = newsIdArray.filter(onlyUnique);
 
