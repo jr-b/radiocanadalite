@@ -1,36 +1,50 @@
 ---
 layout: base.njk
 ---
-  
+
 <header>
-  <p>{% if articles.publishedLastTimeAt %}<time>{{ articles.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm") }} (GMT-4).</time>{% endif %}
-    <span class="author">Un article écrit par
-      {% if articles.signaturesV2[0].person.name %}{{ articles.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}</span></p>
+  <p>
+    {% if articles.publishedLastTimeAt %}
+      <time>{{ articles.publishedLastTimeAt | newsDate("dd LLL yyyy HH:mm") }} (GMT-4).</time>
+    {% endif %}
+    <a href="{% if articles.contentType.id != "26" %}{{ articles.canonicalWebLink.href }}{% else %}}#{% endif %}" alt="Lisez l'article sur Radio-Canada.ca">Un article écrit par
+      {% if articles.signaturesV2[0].person.name %}
+        {{ articles.signaturesV2[0].person.name }}{% else %}Radio-Canada{% endif %}
+    </a>
+  </p>
   <h2>{{ articles.title | safe }}</h2>
-  <p>{% if articles.themeTag.name %}<a href="/{{ articles.themeTag.name | slugify }}/">{{ articles.themeTag.name }}</a> > {{ articles.subThemeTags[0].name }}{% endif %}</p>
+  <p>
+    {% if articles.themeTag.name %}
+      <a href="/{{ articles.themeTag.name | slugify }}/">{{ articles.themeTag.name }}</a>
+      > {{ articles.subThemeTags[0].name }}
+    {% endif %}
+  </p>
 </header>
 <main>
   <article>
-{% if articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}
-<figure>
-<a class="load-image" href="{{ articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}">{{ articles.shareableSummaryMultimediaContent.legend }}<i>Cliquez ici pour afficher l'image d'en-tête</i></a>  
-<figcaption style="display:none;">{{ articles.shareableSummaryMultimediaContent.legend }}</figcaption>
-</figure>
-{% endif %}
-{% if articles.deck %}
-    {{ articles.deck | safe }} {% endif %}
+    {% if articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}
+      <figure>
+        <a class="load-image" href="{{ articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}">{{ articles.shareableSummaryMultimediaContent.legend }}<i>Cliquez ici pour afficher l'image d'en-tête</i>
+        </a>
+        <figcaption style="display:none;">{{ articles.shareableSummaryMultimediaContent.legend }}</figcaption>
+      </figure>
+    {% endif %}
+    {% if articles.deck %}
+      {{ articles.deck | safe }}
+    {% endif %}
     {% if articles.lead %}
-    {{ articles.lead | safe }} {% endif %}
+      {{ articles.lead | safe }}
+    {% endif %}
     {% if articles.contentType.id == "26" %}
-    <a href="{{ articles.canonicalWebLink.href }}">Contenu audio/vidéo disponible sur directement sur Radio-Canada.ca - {{ articles.ancestors[0].title }} </a>
-    <p>{{ articles.summary | safe }}</p> {% endif %}
+      <a href="{{ articles.canonicalWebLink.href }}">Contenu audio/vidéo disponible sur directement sur Radio-Canada.ca - {{ articles.ancestors[0].title }}
+      </a>
+      <p>{{ articles.summary | safe }}</p>
+    {% endif %}
     {% if articles.contentType.id == "90" %}
       {% for item in articles.navigations %}
-      {{ item.pageSection.body.html | safe }}
+        {{ item.pageSection.body.html | safe }}
       {% endfor %}
-         {% endif %}
+    {% endif %}
     {{ articles.body.html | safe }}
   </article>
-  {% if articles.contentType.id != "26" %}
-  <aside><a href="{{ articles.canonicalWebLink.href }}">Lisez l'article sur Radio-Canada.ca</a></aside>{% endif %}
 </main>
