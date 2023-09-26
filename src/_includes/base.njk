@@ -6,13 +6,14 @@
     <!-- The source code is available on Github: https://github.com/jr-b/radiocanadalite --> <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Radio-Canada Lite | Version légère de Radio-Canada.ca">
+    <meta name="description" content="Radio-Canada Mini | Version légère de Radio-Canada.ca">
     <meta
     name="Robots" content="index,follow"> <!-- Open Graph Meta Tags Facebook, Twitter, etc. -->
-    <meta property="og:description" content="Radio-Canada Mini | Version légère de Radio-Canada.ca">
+    <meta property="og:description" content="{% if currentUrl === '/' %}Radio-Canada Mini | Version légère de Radio-Canada.ca{% elif currentUrl === '/a-propos/' %}{{ page.title }}{% else %}{{ articles.title }}{% endif %}">
     <meta property="og:title" content="{% if currentUrl === '/' %}Radio-Canada Mini | Version légère de Radio-Canada.ca{% elif currentUrl === '/a-propos/' %}{{ page.title }}{% else %}{{ articles.title }}{% endif %}">
     <meta property="og:url" content="{{ meta.url }}">
     <meta property="og:type" content="website">
+    <meta name="og:image" content="{% if articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href %}{{ articles.shareableSummaryMultimediaContent.concreteImages[1].mediaLink.href }}{% else %}https://ici.radio-canada.ca/content/_images/logo/svg/black/ici-radio-canada-ca.svg{% endif %}">
     {% if currentUrl !== '/' %}<meta property="og:article" content="article">{% endif %}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:site" content="@RadioCanadaMini">

@@ -39,12 +39,16 @@ layout: base.njk
       <a href="{{ articles.canonicalWebLink.href }}">Contenu audio/vidéo disponible sur directement sur Radio-Canada.ca - {{ articles.ancestors[0].title }}
       </a>
       <p>{{ articles.summary | safe }}</p>
-    {% endif %}
-    {% if articles.contentType.id == "90" %}
-      {% for item in articles.navigations %}
-        {{ item.pageSection.body.html | safe }}
-      {% endfor %}
-    {% endif %}
-    {{ articles.body.html | safe }}
-  </article>
-</main>
+      <audio controls>
+        <source src="{{ articles.downloadableFile.downloadLink.href }}" type="audio/mp4">
+          Your browser does not support the audio element.
+        </audio>
+      {% endif %}
+      {% if articles.contentType.id == "90" %}
+        {% for item in articles.navigations %}
+          {{ item.pageSection.body.html | safe }}
+        {% endfor %}
+      {% endif %}
+      {{ articles.body.html | safe }}
+    </article>
+  </main>
