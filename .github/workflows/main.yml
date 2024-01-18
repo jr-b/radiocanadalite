@@ -36,3 +36,12 @@ jobs:
           publish_dir: ./public
           external_repository: jr-b/jr-b.github.io
           keep_files: true
+
+      - name: Failure check
+        # will run if any of the previous steps has failed
+        if: ${{ failure() }}
+        run: |
+          curl -X POST \
+          -H 'Content-Type: application/json' \
+          -d '{"chat_id": "${{ secrets.TELEGRAM_CHAT_ID }}", "text": "Build has failed for Radio-Canada Mini.", "disable_notification": true}' \
+          https://api.telegram.org/bot${{ secrets.TELEGRAM_TOKEN }}/sendMessage
