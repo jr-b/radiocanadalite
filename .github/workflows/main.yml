@@ -3,7 +3,7 @@ name: Deploy to Github Pages
 on:
   push:
   schedule:
-    - cron:  '*/28 * * * *' # every 30 min
+    - cron: "*/28 * * * *" # every 30 min
 
 jobs:
   build_and_deploy:
@@ -12,14 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2.3.4
 
-      # Uncomment if you want to specify a certain 
+      # Uncomment if you want to specify a certain
       # Node version. Otherwise the Node version installed
       # on the GitHub VM will be used. For more details
-      # see: https://github.com/actions/virtual-environments 
+      # see: https://github.com/actions/virtual-environments
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.4 
+        uses: actions/setup-node@v2.1.4
         with:
-          node-version: '16.7.0'
+          node-version: "16.7.0"
 
       # Uncomment if your project uses dependencies
       - name: Install dependencies
@@ -27,12 +27,12 @@ jobs:
 
       - name: Build the website
         run: npm run build
-    
+
       - name: Deploy
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v3.9.3
         with:
-          personal_token: ${{ secrets.GHPAGES_TOKEN }}   
-          publish_branch: main  # default: gh-pages       
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_branch: main # default: gh-pages
           publish_dir: ./public
           external_repository: jr-b/jr-b.github.io
           keep_files: true
